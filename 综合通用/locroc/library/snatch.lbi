@@ -1,0 +1,64 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $myprice.is_end eq false} -->
+<div class="globalModule">
+  <h3>{$lang.me_bid}</h3>
+  <div class="globalModuleContent">
+    <form action="javascript:bid()" method="post" name="formBid" id="formBid">
+      <table border="0">
+        <tr>
+          <th>{$lang.my_integral}：</th>
+          <td>{$myprice.pay_points}</td>
+        </tr>
+        <tr>
+          <th>{$lang.bid}：</th>
+          <td><input type="hidden" name="snatch_id" value="{$id}" /><input name="price" type="text" id="price" class="textInput" /> <input type="image" src="../images/btn_submit.gif" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+<div class="globalModule">
+  <h3>{$lang.me_now_bid}</h3>
+  <ul class="listStyle">
+    <!--{foreach from=$myprice.bid_price item=item}-->
+    <li>{$item.price}
+      <!--{if $item.is_only}-->
+      <span class="textDesc">({$lang.only_price})</span>
+      <!--{/if}-->
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!-- {else} -->
+<div class="globalModule">
+  <h3>{$lang.view_snatch_result}</h3>
+  <!-- {if $result} -->
+  <form name="buy" action="snatch.php" method="get">
+    <table width="98%" border="0">
+      <tr>
+        <th>{$lang.victory_user}：</th>
+        <td>{$result.user_name}
+          <input type="hidden" name="act" value="buy" />
+          <input type="hidden" name="id" value="{$id}" />
+        </td>
+      </tr>
+      <tr>
+        <th>{$lang.price_bid}：</th>
+        <td>
+          {$result.formated_bid_price} 
+          <!-- {if $result.order_count eq 0 and $result.user_id eq $smarty.session.user_id} -->
+          <input type="image" name="bug" src="images/btn_addcart.gif" title="{$lang.button_buy}" />
+          <!-- {/if} -->
+        </td>
+      </tr>
+      <tr>
+        <th>{$lang.bid_time}：</th>
+        <td class="textTime">{$result.bid_time}</td>
+      </tr>
+    </table>
+  </form>
+  <!--{else}-->
+  <p class="globalModuleContent">{$lang.not_victory_user}</p>
+  <!--{/if}-->
+</div>
+<!-- {/if} -->

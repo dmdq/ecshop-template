@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" --><!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='common.js'}
+</head>
+
+<body>
+  <div id="container">
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+    <div id="globalLeft">
+    
+      <div class="globalModule">
+        <h3>{$lang.your_choice}</h3>
+        <ul class="listStyle">
+          <!--{foreach from = $picks item=pick }-->
+          <li><a href="{$pick.url}">{$pick.name}</a></li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+     
+      <div id="categoryTree" class="globalModule">
+        <h3>商品分类</h3>
+        <ul>
+          <!-- {foreach from=$cat_list item=cat} -->
+          <li><a href="{$cat.url}">{$cat.cat_name|escape:html}</a> <!-- {if $cat.goods_num} --><span class="textDesc">({$cat.goods_num})</span><!-- {/if} --></li>
+          <!-- {/foreach} -->
+        </ul>
+      </div><!-- /categoryTree -->
+      <!-- #BeginLibraryItem "/library/brands.lbi" --><!-- #EndLibraryItem -->
+    </div><!-- /globalLeft -->
+    <div id="globalBigRight">
+      <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+      <div id="globalMiddle" class="globalModule" >
+        <h3>{$lang.search_result} <span class="textDesc">({$count})</span></h3>
+        <div class="itemGrid">
+          <!-- {foreach from=$pickout_goods item=goods name=goods} -->
+          <div class="item">
+            <p class="pic"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></p>
+            <p class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></p>
+            <p class="price">
+              <!-- {if $goods.promote_price neq ""} -->
+              {$lang.promote_price}<span class="goodsPrice">{$goods.promote_price}</span>
+              <!-- {else}-->
+              {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span>
+              <!--{/if}-->
+            </p>
+            <p class="btnList">
+              <a href="javascript:collect({$goods.id})">{$lang.btn_collect}</a> | <a href="javascript:addToCart({$goods.id})">{$lang.btn_buy}</a>
+            </p>
+          </div>
+          <!-- {/foreach} -->
+          <!-- {if $count > 4} -->
+          <p class="more"><a href="{$url}"><img src="../images/btn_more.gif" alt="" /></a></p>
+          <!-- {/if} -->
+        </div><!-- /itemGrid -->
+      </div>
+      <div id="globalPickOut" class="globalModule">
+        <h3>{$lang.pick_out}</h3>
+        <dl>
+          <!-- {foreach from=$condition item=caption} -->
+          <dt>{$caption.name}</dt>
+            <!-- {foreach from=$caption.cat item=cat} -->
+            <dd class="title">{$cat.cat_name}</dd>
+            <dd>
+              <!-- {foreach from = $cat.list item=list} -->
+              <a href="{$list.url}">{$list.name}</a>
+              <!-- {/foreach} -->
+            </dd>
+            <!-- {/foreach} -->
+          <!-- {/foreach} -->
+        </dl>
+      </div><!-- /globalPickOut -->
+    </div><!-- /globalBigRight -->
+     
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    <script type="text/javascript">
+var gmt_end_time = "{$group_buy.gmt_end_date|default:0}";
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+<!-- {literal} -->
+
+onload = function()
+{
+  try
+  {
+    onload_leftTime();
+  }
+  catch (e)
+  {}
+}
+<!-- {/literal} -->
+</script>
+  </div><!-- /container -->
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods} -->
+
+<div style="clear:both"></div>
+
+<div id="globalHot" class="globalModule_hot">
+  <h3></h3>
+  <ul>
+    <!-- {foreach from=$hot_goods item=goods} -->
+
+      <LI><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></LI>
+
+    <!-- {/foreach} -->
+	</ul>
+</div><!-- /globalHot -->
+
+
+
+<div style="clear:both"></div>
+<!-- {/if} -->
+

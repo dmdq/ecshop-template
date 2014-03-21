@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<img src="../images/zixun.gif">
+<div style="border:1px solid #e5e5e5; height:200px;">
+  <ul class="linkSkyblue">
+      <!-- {foreach name=new_articles from=$new_articles item=article} -->
+      <!-- {if $smarty.foreach.new_articles.iteration lte 16} 限制文章显示数量 -->
+      <li style="margin:7px;"><img src="../images/icon_list_arrow02.gif"> <a style="color:#555;" href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:18}</a></li>
+      <!-- {/if} -->
+      <!-- {/foreach} -->
+      
+    </ul>
+</div>
+<center><img src="../images/phone.png"></center>
+

@@ -1,0 +1,34 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $best_goods} -->
+ 
+ 
+ <div class="box">
+ 
+  <div class="cat_tit"> <span><a href="../search.php?intro=best" >精品推荐</a></span> <a  href="../search.php?intro=best">更多>></a>   </div>
+    <div class="goods_cat  ">
+    <div class="clearfix goodsBox  " >
+  <!--{foreach from=$best_goods item=goods}-->
+  <div class="goodsItem" >
+         
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg"  onmouseover="showtrail('{$goods.goods_img}','{$goods.short_style_name}',270,347)" onmouseout="hidetrail()" /></a><br />
+			
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+          
+                售价：{$goods.market_price}<br/>
+           <font class="f1">
+           <!-- {if $goods.promote_price neq ""} -->
+        {$goods.promote_price}
+          <!-- {else}-->
+          现价：{$goods.shop_price}
+          <!--{/if}-->
+           </font>
+        </div>
+  <!--{/foreach}-->
+
+  <!-- {if $cat_rec_sign neq 1} -->
+  </div>
+
+</div>
+<div class="blank"></div>
+  <!-- {/if} -->
+<!-- {/if} -->

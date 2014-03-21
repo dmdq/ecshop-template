@@ -1,0 +1,108 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $vote} -->
+{insert_scripts files='transport.js'}
+<div id="low_main_list">
+  <div class="globalModule_vote">
+    <h3></h3>
+	<div id="low_main_box">
+    <form name="ECS_VOTEFORM" method="post" action="javascript:submit_vote()">
+        <table border="0">
+          <!-- {foreach from=$vote item=title} -->
+          <tr>
+            <th class="lanse">{$title.vote_name}</th>
+          </tr>
+          <tr>
+            <td class="textDesc">({$lang.vote_times}:{$title.vote_count})</td>
+          </tr>
+          <!-- {/foreach} -->
+          <tr>
+            <!-- {foreach from=$vote item=title} -->
+            <td class="optionList">
+              <!-- {foreach key=key from=$title.options item=item} -->
+              <!-- {if $title.can_multi eq 0} -->
+              <input type="checkbox" name="option_id" value="{$item.option_id}" id="option_{$key}" /> <label for="option_{$key}">{$item.option_name}</label> <span class="textDesc">({$item.percent}%)</span><br />
+              <!-- {else} -->
+              <input type="radio" name="option_id" value="{$item.option_id}" id="option_{$key}" /> <label for="option_{$key}">{$item.option_name}</label> <span class="textDesc">({$item.percent}%)</span><br />
+              <!-- {/if} -->
+              <!-- {/foreach} -->
+              <input type="hidden" name="type" value="{$title.can_multi}" />
+            </td>
+            <!-- {/foreach} -->
+          </tr>
+          <tr>
+            <td class="btnList_vote">
+              <input type="hidden" name="id" value="{$vote_id}" />
+              <input  class="right_margin_12" type="image" name="submit" src="../images/btn_vote.gif" />
+              <input type="image" src="../images/btn_vote_reset.gif" onclick="ECS_VOTEFORM.reset();" />
+            </td>
+          </tr>
+		   <tr>
+            <td class="lanse">
+              <a id="lanse" href="message.php">我有话要说</a>            </td>
+          </tr>
+        </table>
+    </form>
+	</div>
+  </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+{literal}
+/**
+ * 处理用户的投票
+ */
+function submit_vote()
+{
+  var frm     = document.forms['ECS_VOTEFORM'];
+  var type    = frm.elements['type'].value;
+  var vote_id = frm.elements['id'].value;
+  var option_id = 0;
+
+  if (frm.elements['option_id'].checked)
+  {
+    option_id = frm.elements['option_id'].value;
+  }
+  else
+  {
+    for (i=0; i<frm.elements['option_id'].length; i++ )
+    {
+      if (frm.elements['option_id'][i].checked)
+      {
+        option_id = (type == 0) ? option_id + "," + frm.elements['option_id'][i].value : frm.elements['option_id'][i].value;
+      }
+    }
+  }
+
+  if (option_id == 0)
+  {
+    return;
+  }
+  else
+  {
+    Ajax.call('vote.php', 'vote=' + vote_id + '&options=' + option_id + "&type=" + type, voteResponse, 'POST', 'JSON');
+  }
+}
+
+/**
+ * 处理投票的反馈信息
+ */
+function voteResponse(result)
+{
+  if (result.message.length > 0)
+  {
+    alert(result.message);
+  }
+  if (result.error == 0)
+  {
+    var layer = document.getElementById('ECS_VOTE');
+
+    if (layer)
+    {
+      layer.innerHTML = result.content;
+    }
+  }
+}
+{/literal}
+//]]>
+</script>
+<!-- {/if} -->

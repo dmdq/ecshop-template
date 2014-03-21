@@ -1,0 +1,188 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_mbaobao/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_mbaobao/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+ <div id="topNav"  >
+<div class="block">
+
+
+<div class="f_l" style="_padding-top:3px;">
+    <a style="cursor: pointer"  
+    onClick="window.external.AddFavorite(location.href,document.title);">
+    <img src="../images/biao12.gif"> 收藏麦包包
+    </a>
+    <span> 
+    <img src="../images/biao13.gif"> 订购热线：<b> 
+    <!-- 客服电话{if $service_phone} -->
+    {$service_phone}
+ <!-- 结束客服电话{/if} --></b>
+    </span> 
+</div>
+<div class="f_r log">
+     
+    <ul>
+        <li style="float:left"   class="clearfix">
+        <!--{if $navigator_list.top}-->
+        <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+        <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+        <!-- {/foreach} --> <!-- {/if} -->
+         {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">
+   {* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+        </li>
+    </ul>
+</div>
+ 
+
+
+</div>
+</div>
+
+
+<div style=" clear:both"></div>
+
+
+<div class="block clearfix" style=" height:73px;">
+ <div class="f_l" style=" padding-top:15px ">
+ <a href="../index.php" name="top"><img style="float:left" src="../images/logo.gif" /></a>
+ </div>
+
+ 
+   <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" >
+   
+   <div class="clearfix"   onclick="this.className='clearfix ul2_on'" >
+   
+   <div style="float:left; position:relative">
+   <input name="keywords" type="text" id="keyword" value="品名或商品号" onclick="javascript:this.value=''" class="B_input"/>
+   <img style=" position:absolute; left:4px; top:4px;" src="../images/biao14.gif">
+   </div>
+   
+   <input name="imageField" type="submit" value="搜索" class="go" style="cursor:pointer;" />
+   </div>
+   
+   
+   
+   
+   <div class="keys">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+  <b> 热门关键词：</b>
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+  </div>
+   </form>
+   
+  
+  
+ 
+
+ 
+ 
+
+ 
+</div>
+
+ 
+
+
+<div  class="block" style=" position:relative; z-index:99999999;">
+<div id="mainNav" class="clearfix">
+
+
+  <a class="a2" href="../index.php" {if $navigator_list.config.index eq 1} id="a1_on"   {/if}>{$lang.home} </a>
+  
+  
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <ul class="u1" onmouseover="this.className='u1 u1_over'" onmouseout="this.className='u1'" >
+  <a  class="a1" {if $nav.active eq 1}  id="a1_on" {/if}  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a>
+   </ul>
+  
+ <!-- {/foreach} -->
+  
+   
+<div class="mainNav_r">
+<a href="../search.php?intro=new">新品</a>
+<a href="brand.php">品牌</a>
+<a href="../search.php?intro=promotion">促销</a>
+<a href="#">风云榜</a>
+<a href="pick_out.php">选包中心</a>
+</div>
+
+
+
+</div>
+</div>
+ 
+
+
+
+
+
+
+
+
+<!--search start-->
+
+<div class="block clearfix">
+ <div id="search" >
+ <div class="f_l">
+ <img src="../images/biao15.gif"> 
+
+ 公告：
+ <img src="../images/biao16.gif">
+ <a href="#" style="color:#ed1c24">全场免运费（支持货到付款，7天无条件退换货）</a>
+ <a href="#"><img src="../images/biao16.gif">
+ 意大利品牌馆盛大开启！</a>
+ <img src="../images/biao16.gif">
+ <a href="#">新版网站调查反馈</a> 
+ </div>
+
+  
+  
+  
+<div class="buy_car_bg_box" style="float:right; padding-top:5px; padding-right:8px;">  
+{insert_scripts files='transport.js'}
+<div class="buy_car_bg " id="ECS_CARTINFO" onmouseover="this.className='buy_car_bg ul1_on'" onmouseout="this.className='buy_car_bg'">
+<div style="background:url(../images/biao3.gif) 0 center no-repeat; padding-left:30px;">
+ 
+ <a  href="flow.php">{insert name='cart_info'}</a>
+ </div> 
+</div> 
+</div> 
+
+
+
+
+
+
+</div>
+
+</div>
+  
+ 
+<!--search end-->
+
+
+<div class="blank"></div>

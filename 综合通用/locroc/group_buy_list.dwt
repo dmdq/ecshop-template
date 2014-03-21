@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" --><!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='common.js'}
+</head>
+
+<body>
+  <div id="container">
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+    <!-- TemplateEndEditable -->
+    <div id="globalLeft">
+      <!-- TemplateBeginEditable name="主区域左侧" -->
+      <!-- #BeginLibraryItem "/library/search_form.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/cart.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+      <!-- TemplateEndEditable -->
+    </div><!-- /globalLeft -->
+    <div id="globalBigRight">
+      <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+      <div id="globalGroupList" class="globalModule">
+        <h3>{$lang.gb_goods_name}</h3>
+        <!-- {if $gb_list} 如果有团购活动 -->
+        <div class="itemList">
+          <!-- {foreach from=$gb_list item=group_buy} 循环团购活动开始 -->
+          <div class="item">
+            <p class="pic">
+              <a href="{$group_buy.url}"><img src="{$group_buy.goods_thumb}" alt="{$group_buy.goods_name|escape:html}" /></a>
+            </p>
+            <div class="itemListInfo">
+              <p class="name">
+                <a href="{$group_buy.url}" title="{$goods.name|escape:html}">
+                   {$lang.gb_goods_name}{$group_buy.goods_name|escape:html}
+                </a>
+              </p>
+              <p class="sort">{$lang.gb_start_date}<br />{$group_buy.formated_start_date}</p>
+              <p class="sort">{$lang.gb_end_date}<br />{$group_buy.formated_end_date}</p>
+            </div>
+            <div class="itemListInfo">
+              <p class="sort">
+                {$lang.gb_price_ladder}
+              </p>
+              <table border="0">
+                <tr>
+                  <th>{$lang.gb_ladder_amount}</th>
+                  <th>{$lang.gb_ladder_price}</th>
+                </tr>
+                <!-- {foreach from=$group_buy.price_ladder item=item} -->
+                <tr>
+                  <td>{$item.amount}</td>
+                  <td>{$item.formated_price}</td>
+                </tr>
+                <!-- {/foreach} -->
+              </table>
+              
+            </div>
+          </div>
+          <!-- {/foreach} -->
+        </div>
+        <!-- {else} -->
+        <div class="globalModuleContent">{$lang.group_goods_empty}</div>
+        <!-- {/if} -->
+        <!-- {if $gb_list} -->
+        <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+        <!-- {/if} -->
+      </div><!-- /globalAuctionList -->
+    </div><!-- /globalBigRight -->
+     
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+  </div><!-- /container -->
+</body>
+</html>
+

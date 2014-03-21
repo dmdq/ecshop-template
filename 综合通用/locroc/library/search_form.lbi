@@ -1,0 +1,45 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $action neq "form"} -->
+<div id="globalSearch" class="moduleBg">
+  <h3><img src="../images/search_title.png" alt="Search" /></h3>
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+    <select name="category" id="category" style="vertical-align:middle;">
+      <option value="0">{$lang.all_category}</option>
+      {$category_list}
+    </select>
+    <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}" class="textInput" />
+    <input type="image" src="../images/btn_search.gif" class="vAlign"  /> <a href="search.php?act=advanced_search" id="adSearch" class="vAlign">&gt;&gt;{$lang.advanced_search}</a> 
+  </form>
+</div><!-- /globalSearch -->
+<!-- {if $searchkeywords} -->
+<div id="globalSearchKeywords" class="globalModule">
+  <h3>热门搜索</h3>
+  <p class="globalModuleContent">
+    <!-- {foreach from=$searchkeywords item=val} -->
+    <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+    <!-- {/foreach} -->
+  </p>
+</div><!-- /globalSearchKeywords -->
+<!-- {/if} -->
+<script type="text/javascript">
+//<![CDATA[
+{literal}
+window.onload = function()
+{
+  fixpng();
+}
+function checkSearchForm()
+{
+    if(document.getElementById('keyword').value)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+{/literal}
+//]]>
+</script>
+<!-- {/if} -->

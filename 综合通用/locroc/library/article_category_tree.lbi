@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $article_categories} -->
+<div class="globalModule" id="article_categoryTree" >
+  <ul>
+    <!-- {foreach from=$article_categories item=cat} -->
+    <li class="tree_li1">
+      <h4><a href="{$cat.url}">{$cat.name|escape:html}</a></h4>
+      <!-- {foreach from=$cat.children item=child} -->
+       <li class="tree_li2"><a href="{$child.url}">{$child.name|escape:html}</a></li>
+      <!-- {/foreach} -->
+    </li>
+    <!-- {/foreach} -->
+  </ul>
+</div>
+<!-- {/if} -->
+

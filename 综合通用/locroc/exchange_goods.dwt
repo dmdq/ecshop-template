@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+<script type="text/javascript">
+function $id(element)
+{
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str)
+{
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+
+  for(var i=0;i<bt.length;i++)
+  {
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+
+    bt[i].onclick=function()
+    {
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++)
+      {
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+
+</script>
+
+</head>
+<body>
+  <div id="container">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <!--left start-->
+  
+  <!--left end-->
+
+    <!--商品详情start-->
+     <div id="divGoodsImage" class="top_margin_20">
+        <DIV CLASS="imageMain"> <DIV class=centerWrap><a href="javascript:;" onClick="window.open('gallery.php?id={$goods.goods_id}'); return false;"><img id="goods_img" style="width:400px height:400px;" src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" class="thumb" /></a></DIV></DIV>
+		 <DIV class="imageGallery">
+ <SCRIPT type=text/javascript>
+
+          var myTimer;
+          var toLeft=0;
+          function moveNext()
+          {
+            var e = document.getElementById("gallery-list");
+            toLeft = e.scrollLeft+94;
+            if(myTimer)return;
+            myTimer = setInterval(function(){
+               moveTo("next");
+            },1);
+          }
+          function movePrev()
+          {
+            var e = document.getElementById("gallery-list");
+            if(e.scrollLeft<=0)return;
+            toLeft = e.scrollLeft-94;
+            if(myTimer)return;
+            myTimer = setInterval(function(){
+               moveTo("prev");
+            },2);
+          }
+          function moveTo(action){
+             var e = document.getElementById("gallery-list");
+             if(myTimer){
+               if(action=="next"){
+                 if(e.scrollLeft>=toLeft||e.offsetWidth+e.scrollLeft>=e.scrollWidth){
+                   clearInterval(myTimer);
+                   myTimer=0;
+                   return;
+                 }
+                 document.getElementById("gallery-list").scrollLeft+=4;
+               }else{
+                 if(document.getElementById("gallery-list").scrollLeft<=toLeft||e.scrollLeft<=0){
+                   clearInterval(myTimer);
+                   myTimer=0;
+                   return;
+                 }
+                 document.getElementById("gallery-list").scrollLeft-=4;
+               }
+             }
+          }
+          function showBigImage(src)
+          {
+             var img    = document.getElementById("goods_img");
+             var parent = img.parentNode;
+             parent.removeChild(img);
+             var img    = document.createElement("img");
+             img.src    = src;
+             img.id     = "goods_img";
+             //img.height = 300;
+             //img.width  = 300;
+             parent.appendChild(img);
+          }
+          
+          </SCRIPT>
+          <!-- #BeginLibraryItem "/library/goods_gallery.lbi" --><!-- #EndLibraryItem -->
+        <div class="blank5"></div>
+        <!--相册 END-->
+        <!-- TemplateBeginEditable name="商品相册下广告（宽230px）" -->
+        <!-- TemplateEndEditable -->
+      </div>
+      <!--商品图片和相册 end-->
+
+      <div id="itemInfoList">
+      <form action="exchange.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+
+        <h2>{$goods.goods_style_name} <!-- 商品销售排名{if $goods_rank}--><img src="images/rank_{$goods_rank}.gif" alt="{$goods_rank}" /><!-- {/if} --></h2>
+       <ul class="line">
+          <!-- {if $cfg.show_goodssn} 显示商品货号-->
+          <li>
+            {$lang.goods_sn} {$goods.goods_sn}
+           
+          </li>
+          <!-- {/if} -->
+          <!-- {if $goods.goods_brand neq "" and $cfg.show_brand} 显示商品品牌-->
+          <li>
+            {$lang.goods_brand}<a href="{$goods.goods_brand_url}" >{$goods.goods_brand}</a>
+          
+          </li>
+          <!--{/if}-->
+          <!-- {if $cfg.show_goodsweight} 商品重量-->
+          <li>
+            {$lang.goods_weight} {$goods.goods_weight}
+            
+          </li>
+          <!-- {/if} -->
+          <li>
+           {$lang.exchange_integral}<font class="shop">{$goods.exchange_integral}</font>
+          </li>
+          <!-- {* 开始循环所有可选属性 *} -->
+          <!-- {foreach from=$specification item=spec key=spec_key} 循环规格开始 -->
+          <li>
+           {$spec.name}:<br />
+            <!-- {if $cfg.goodsattr_style eq 1} 规格显示方式：单选按钮 -->
+              <!-- {foreach from=$spec.values item=value key=key} -->
+                <label for="spec_value_{$value.id}">
+                <input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked{/if} />
+                {$value.label} </label>
+              <!-- {/foreach} -->
+            <!-- {else} 规格显示方式：下拉列表 -->
+              <select name="spec_{$spec_key}" style="border:1px solid #ccc;">
+              <!-- {foreach from=$spec.values item=value key=key} -->
+                <option label="{$value.label}" value="{$value.id}">{$value.label} </option>
+              <!-- {/foreach} -->
+              </select>
+            <!-- {/if} 规格显示方式 -->
+          </li>
+          <!-- {/foreach} 循环规格结束 -->
+          <!-- {* 结束循环可选属性 *} -->
+          <li class="padd">
+            <input type="hidden" name="goods_id" value="{$goods.goods_id}" />
+            <input type="submit" value="{$lang.exchange_goods}" class="bnt_blue_1"/>
+          </li>
+        </ul>
+      </form>
+      </div>
+    </div>
+ 
+        <!-- /itemInfoList -->
+
+      <!-- /itemAllInfo -->
+      <div class="mod_goods">
+        <div class="TabControl" id="globalTab">
+          <div class="Tabtittle ">
+		  {$lang.goods_brief}
+          </div>
+          <div class="globalModule TabPages">
+            <!-- {if $properties} -->
+            <div id="globalProperties" class="TabPage">
+              <table border="0">
+                <!-- {foreach from=$properties item=property_group key=key} -->
+                <tr>
+                  <th colspan="2" class="parentTitle">{$key|escape}</th>
+                </tr>
+                <!-- {foreach from=$property_group item=property} -->
+                <tr>
+                  <th>[ {$property.name|escape:html} ] :</th>
+                  <td>{$property.value|escape:html}</td>
+                </tr>
+                <!-- {/foreach}-->
+                <!-- {/foreach}-->
+              </table>
+            </div><!-- /globalProperties -->
+            <!-- {/if} -->
+            <!-- {if $goods.goods_desc} -->
+            <div id="globalDesc" class="TabPage">
+              {$goods.goods_desc}            </div><!-- /globalDesc -->
+            <!-- {/if} -->
+            
+            <!-- {if $fittings} -->
+            <div id="globalFitting" class="TabPage">
+              <div class="itemGrid">
+                <!-- {foreach from=$fittings item=goods} -->
+                <div class="item">
+                  <p class="pic"><a href="{$goods.url}" target="_blank"><img src="{$goods.goods_thumb}" alt="{$goods.name|escape:html}" /></a></p>
+                  <p class="name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></p>
+                  <p class="price">
+                    {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span><br />
+                    {$lang.fittings_price}<span class="goodsPrice">{$goods.fittings_price}</span>                  </p>
+                  <p class="btnList">
+                    <a href="javascript:addToCart({$goods.goods_id},{$goods_id})">{$lang.btn_add_to_cart}</a>                  </p>
+                </div>
+                <!-- {/foreach} -->
+              </div>
+            </div><!-- /globalFitting -->
+            <!-- {/if} -->
+            <!-- {if $bought_goods} -->
+            <div id="globalBoughtGoods" class="TabPage">
+              <div class="itemGrid">
+                <!-- {foreach from=$bought_goods item=goods} -->
+                <div class="item">
+                  <p class="pic"><a href="{$goods.url}" target="_blank"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a></p>
+                  <p class="name"><a href="{$goods.url}" target="_blank" title="{$goods.goods_name}">{$goods.short_name}</a></p>
+                  <p class="price">
+                    <!-- {if $goods.promote_price neq 0} -->
+                    {$lang.promote_price}<span class="goodsPrice">{$goods.formated_promote_price}</span><br />
+                    <!-- {else} -->
+                    {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span>
+                    <!-- {/if} -->
+                  </p>
+                </div>
+                <!-- {/foreach} -->
+              </div>
+            </div><!-- /globalBoughtGoods -->
+            <!-- {/if} -->
+          </div>
+        </div><!-- /TabPages -->
+        <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+      </div><!-- /globalMiddle -->
+	  <div id="goods_right">
+	  <img class="bottom_margin_12"src="images/notice_240x100.jpg" />
+	  <!-- {if $related_goods} -->
+<div  class="globalModule" id="relativeItem">
+  <h3></h3>
+  <div class="itemGrid">
+    <!-- {foreach from=$related_goods item=goods_related} -->
+    <div class="item">
+      <a href="{$goods_related.url}"><img style="width:60px; height:60px; float:left;margin:2px;border:1px solid #E5E5E5;" src="{$goods_related.goods_thumb}" alt="{$goods_related.goods_name}" /></a>
+    </div><!-- /item -->
+    <!-- {/foreach} -->
+  </div><!-- /itemGrid -->
+</div>
+
+<!-- {/if} -->
+<img class="bottom_margin_12"src="images/free_240x50.gif" />
+	  </div>
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+  </div><!-- /container -->
+<!--End #footer-->
+  <script type="text/javascript">
+<!-- {literal} -->
+onload = function()
+{
+  fixpng();
+}
+<!-- {/literal} -->
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $invoice_list} -->
+<div id="invoiceQuery" class="globalModule">
+  <h3>{$lang.shipping_query}</h3>
+  <ul>
+    <!-- 发货单查询{foreach from=$invoice_list item=invoice} -->
+    <li>
+      <strong>{$lang.order_number}</strong>: {$invoice.order_sn}<br />
+      <strong>{$lang.consignment}</strong>: {$invoice.invoice_no}
+    </li>
+    <!-- {/foreach} -->
+  </ul>
+</div>
+<!-- {/if} -->

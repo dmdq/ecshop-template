@@ -1,0 +1,150 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_uiyi/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_uiyi/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+<div class="block">
+<div class="top_nav">
+<p class="f_l" ><a href="#"> <img src="../images/wgz.gif" height="22" width="62" /></a> </p>
+<div class="f_l" style="padding-left:70px;">
+	<div class="f_l" > 
+	{insert_scripts files='utils.js'}
+	<font class=member_info"" id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>  
+	<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+	|
+	<a   href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+	<!-- {/foreach} -->
+	</div>
+	<div class="f_l"> 
+	<div style="float:left; padding-left:5px;">
+	| <a style="cursor: pointer; padding-right:20px; padding-left:5px;"onClick="window.external.AddFavorite(location.href,document.title);">收藏</a>
+	客服电话：400-880-8810 
+	</div>    
+	</div>  
+</div>
+
+<div  style=" float:right;" class="buy_car_bg clearfix" style="background:#FFFFFF" >
+  <div id="ECS_CARTINFO" >
+<img  src="../images/index_cartico.jpg" style="vertical-align: middle" alt=""> {insert name='cart_info'} 
+<a href="flow.php" style="padding-left:20px;">去结算</a>
+  </div> 
+</div>
+
+<script type="text/javascript">
+var email = document.getElementById('user_email');
+function add_email_list()
+{
+  if (check_email())
+  {
+    Ajax.call('user.php?act=email_list&job=add&email=' + email.value, '', rep_add_email_list, 'GET', 'TEXT');
+  }
+}
+function rep_add_email_list(text)
+{
+  alert(text);
+}
+function cancel_email_list()
+{
+  if (check_email())
+  {
+    Ajax.call('user.php?act=email_list&job=del&email=' + email.value, '', rep_cancel_email_list, 'GET', 'TEXT');
+  }
+}
+function rep_cancel_email_list(text)
+{
+  alert(text);
+}
+function check_email()
+{
+  if (Utils.isEmail(email.value))
+  {
+    return true;
+  }
+  else
+  {
+    alert('{$lang.email_invalid}');
+    return false;
+  }
+}
+</script>
+
+</div>
+<!--end page_header-->
+
+<div class="blank5"></div> 
+<div class="blank"></div>  
+<div class="mainNav clearfix " >
+		<div class="logo f_l " >
+		<a class="f_l" href="index.php"><img class="f_l" src="../images/logo.gif"></a>
+		</div>
+    	<div class="nav_list f_l">
+		<div class="newtop"><img src="../images/Tuesday2png8.png" ></div>
+		<div class="nav_new ">
+        	<ul class="uymenu" >
+            	<li><a id="a1"  href="../index.php"{if $navigator_list.config.index eq 1} class="curr"{/if}>首页</a></li>
+                  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+                   <li> <a id="aa"  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="curr "{/if}> {$nav.name} </a> </li>				  
+                 <!-- {/foreach} -->
+            </ul>
+			<ul class="uynav">
+  <li ><a href="brand.php" name="__menupinpaigou">品牌购</a></li>
+  <li style="position:relative" ><a href="search.php?intro=new"  name="__menuxinpinhui">新品惠</a></li>
+  <li ><a href="group_buy.php" name="__menuxianshigou">限时抢</a></li>
+  <li  ><a href="search.php?intro=promotion" name="__menushaishai">特卖场</a></li>
+             </ul>
+
+			</div>
+		<div id="search"  class="clearfix uysearch ">
+		{if $searchkeywords} 
+		<div class="hot_search f_l">
+		热门关键词：
+		{foreach from=$searchkeywords item=val}
+		<a href="search.php?keywords={$val|escape:url}">{$val}</a>
+		{/foreach}
+		</div>
+		
+		<script type="text/javascript">
+		{literal}
+		<!--
+		function checkSearchForm()
+		{
+		if(document.getElementById('keyword').value)
+		{
+		return true;
+		}
+		else
+		{
+		alert("{$lang.no_keywords}");
+		return false;
+		}
+		}
+		-->
+		{/literal}
+		</script>
+		
+		
+		<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_l ">
+		
+		
+		<input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}" class="s_text " />
+		
+		
+		<input name="imageField" type="submit" value="搜索" class="go" style="cursor:pointer; " />
+		
+		
+		{/if}
+		
+		</form>
+		</div>
+</div>
+
+
+
+</div>
+<!--end mid_nav-->
+
+
+</div>
+<div class="blank"></div>

@@ -1,0 +1,158 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_okbuy/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_okbuy/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div  style=" height:104px; background:url(../images/header_bg.gif) repeat-x">
+<div class="block clearfix" style="position:relative; height:104px; z-index:999999999">
+ <div class="f_l" style=" padding-top:0px "><a href="../index.php" name="top"><img src="../images/logo.gif" /></a></div>
+ <div class="f_l" style="  padding:39px 30px 0  0px "><a style="cursor: pointer"  
+onClick="window.external.AddFavorite(location.href,document.title);"><img style="float:left" src="../images/add_site.gif"></a>
+
+
+ <!-- 客服电话{if $service_phone} -->
+ <div style="float:left">
+24小时服务热线：<b style="color:#e08d73; font-size:14px">{$service_phone}</b>
+</div> 
+ <!-- 结束客服电话{/if} -->
+ 
+ 
+</div> 
+
+ <div class="log">
+   <ul>
+   <li id="topNav" class="clearfix">
+   
+     {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+   
+   <!--{if $navigator_list.top}-->
+   
+   
+
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+   <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+   
+    <!-- {/foreach} -->
+
+
+   <!-- {/if} -->
+  
+    
+</li>
+   
+   
+   
+   
+   
+   
+   
+   </ul>
+ </div>
+ 
+ <div style=" clear:both"></div>
+ 
+ 
+
+ 
+
+<div id="mainNav" class="clearfix">
+  <a class="a1 {if $navigator_list.config.index eq 1} cur {/if}" href="../index.php"  >{$lang.home}  </a>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <ul class="u1" onmouseover="this.className='u1 u1_over'" onmouseout="this.className='u1'" >
+  <a  class="a1 {if $nav.active eq 1} cur {/if}"  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name} <img class="img1" src="../images/biao8.gif"></a>
+   </ul>
+ <!-- {/foreach} -->
+ 
+ 
+ 
+ 
+ </div>
+ 
+ 
+ 
+ <div class="mr">
+ <a href="../search.php?intro=new"><img src="../images/mr1.gif"></a>
+ <a href="../user.php"><img src="../images/mr2.gif"></a>
+ <a href="../brand.php"><img src="../images/mr3.gif"></a>
+ </div>
+ 
+ 
+
+ 
+ </div>
+</div>  
+<!--search start-->
+<div id="search"  > 
+<div class="block  clearfix">
+ <div class="keys  ">
+    {if $searchkeywords}
+ 
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+  </div>
+  
+  
+  
+  
+  
+  
+  
+ 
+<div class="cart"  >
+<div class="f_l" id="ECS_CARTINFO">
+ {insert name='cart_info'}
+</div> 
+<a href="flow.php"><img src="../images/jiesuan.gif"></a>
+</div>
+ 
+ 
+
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
+  <div class="search_box">
+   <input name="keywords" type="text" id="keyword" value="" onclick="javascript:this.value=''" class="B_input"/>
+   </div>
+   <input name="imageField" type="submit" value="" class="go" style="cursor:pointer;" />
+ 
+ 
+   </form>  
+ 
+ 
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+       
+  
+     
+  
+ 
+  
+  
+  
+  
+  
+ 
+</div>
+</div>  
+<!--search end-->
+
+<div class="blank index_no"></div>
+

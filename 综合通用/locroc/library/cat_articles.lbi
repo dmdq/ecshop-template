@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $articles} -->
+<div id="low_main_list" class="globalModule_news">
+  <h3></h3>
+<div id="low_main_box" class="help_box">
+  <dl class="help_tittle">
+  <dd><a href="{$articles_cat.url}">{$articles_cat.name|escape:html}</a></dd>
+  </dl>
+  
+  <dl class="help_content">
+
+    <!--{foreach from=$articles item=article_item}-->
+    <dd><a href="{$article_item.url}" title="{$article_item.title|escape:html}">{$article_item.short_title}</a> {$article_item.add_time}</dd>
+    <!-- {/foreach} -->
+  </dl>
+
+  </div>
+</div>
+<!-- {/if} -->

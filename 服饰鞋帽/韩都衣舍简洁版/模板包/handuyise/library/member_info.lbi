@@ -1,0 +1,15 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $user_info}
+ 
+<span id="topWelcomeDiv" class="heaTopHighlight">
+<a href="user.php" target="_blank"> {$lang.hello},
+<font >{$user_info.username}&nbsp;</font></a>
+<a href="user.php" target="_blank">{$lang.user_center}</a>
+<a href="user.php?act=logout" target="_blank" class="bgNone" target="_parent" onclick="">{$lang.user_logout}</a></span>
+{else}
+{$lang.welcome}！&nbsp;&nbsp;
+<span id="topLoginDiv" class="heaTopHighlight" style="display:inline-block;">
+<a href="user.php" class="bgNone" target="_blank" >登录</a><a href="user.php?act=register" target="_blank"  class="popHover">注册</a>
+</span>
+{/if}

@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $helps} -->
+<div id="low_main_list" class="globalModule_help">
+  <h3></h3>
+    <div id="low_main_box" class="help_box">
+		<dl class="help_tittle">
+			  <!-- {foreach from=$helps item=help_cat} -->
+			  <dd>{$help_cat.cat_name}</dd>
+			  <!-- {/foreach} -->
+		</dl>
+		<dl class="help_content">
+			  <!-- {foreach from=$helps item=help_cat} -->
+<dt>
+<!-- {foreach from=$help_cat.article item=item} -->
+				<dd><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></dd>
+				<!-- {/foreach} -->
+</dt>
+			  <!-- {/foreach} -->
+		</dl>
+  </div>
+</div>
+<!-- {/if} -->

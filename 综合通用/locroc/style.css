@@ -1,0 +1,713 @@
+/*
+Template Name: 乐客locroc-272版
+Template URI: http://www.dmdq.org/
+Description: 
+Version: 2.70
+Author: 代码大全
+Author URI: http://www.dmdq.org/
+Logo filename: logo.gif
+*/
+
+@import url(css/layout.css); /*布局*/
+@import url(css/component.css); /*模块部分*/
+
+/*  ==================== 全局通用部分 ====================  */
+body,p,td,th,input,select,textarea {
+	font: normal normal 12px Arial;
+	margin: 0;
+	padding: 0;
+	color:#555;
+}
+#hid{margin-top: -3000px;position: absolute;z-index: 999;}
+ul,ol,dl,dt,dd,form {
+  margin: 0;  padding: 0;
+}
+ul,ol {
+  list-style: none;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-size: 12px;
+  margin: 0;  padding: 0;
+}
+
+.f_l{ float:left}
+.f_r{ float:right}
+
+img {
+  border: 0;
+}
+textarea {
+  padding: 3px;
+  border: 1px solid #a5d2eb;
+}
+a:link,a:visited {
+  color: #555;
+  text-decoration: none;
+}
+a:hover{color:#2ba5e4;}
+a:active {
+  text-decoration: underline;
+}
+.vAlign {
+  vertical-align: middle;
+}
+.linkSkyblue a {
+  color: #5fb0dc;
+}
+
+#rss {
+  text-align: center;
+  margin: -20px 0 20px 0;
+}
+.textDesc {
+  color: #555;
+}
+.textStrong {
+}
+.textStrong a{color:#2FA8E4;
+}
+.textTime {
+  font: 10px Arial;
+  color: #999;
+  margin-left: 5px;
+}
+.btnBlue {
+  display: block;
+  background: url(images/btn_blue_l.gif) no-repeat left center;
+  float: left;
+  padding-left: 1px;    margin-right: 3px;
+}
+.btnBlue a {
+  line-height: 17px;
+  color: #0b54ab;
+  background: url(images/btn_blue_r.gif) no-repeat right center;
+  float: left;
+  padding: 2px 10px;
+}
+.msgNocice {
+  background: #F0F0F0;
+  padding:8px 5px 8px 7px;    margin: 10px 0;
+  border: 1px solid #E5E5E5;width:488px;
+}
+#loader {
+  background-color: #ffc;
+  border: 1px solid #cc0;
+  position: fixed;
+  color: #CC0000;
+  z-index: 1000;
+  left: 0px;
+  bottom: 0px;
+  padding: 5px 15px;
+  /*display: none;*/
+  filter: progid:DXImageTransform.Microsoft.BasicImage(opacity=.65);
+  opacity: 0.65;
+}
+* html #loader {
+  position: absolute;
+}
+.watermark_small {
+  display: block;
+  text-indent: -9999px;
+  width: 31px;    height: 15px;
+  margin-right: 3px;
+  float: left;
+}
+.watermark_promote_small {
+  background: url(images/watermark_promote_small.gif) no-repeat;
+}
+.watermark_new_small {
+  background: url(images/watermark_new_small.gif) no-repeat;
+}
+.watermark_best_small {
+  background: url(images/watermark_best_small.gif) no-repeat;
+}
+.watermark_hot_small {
+  background: url(images/watermark_hot_small.gif) no-repeat;
+}
+
+
+/*  ========== 分类导航 ====  */
+.catalogDiv {/*FF*/ 
+ DISPLAY: none;  Z-INDEX: 99; BACKGROUND: #ffffff;
+	MARGIN: 23px 0px 0px -180px;
+ WIDTH: 537px;border: #e5e5e5 5px solid; POSITION: absolute; padding:5px 0 10px 3px;
+	}
+*+html .catalogDiv{/*IE7*/ 
+MARGIN: 1px 0px 0px 0px; } 
+*html .catalogDiv{/*IE6*/ 
+MARGIN: 1px 0px 0px 0px; } 
+
+
+
+	.clearfix:after{
+content:"."; display:block; height:0; clear:both;
+visibility:hidden;
+}
+*html .clearfix{
+ height:1%;
+}
+*+html .clearfix{
+ height:1%;
+}
+	
+	
+.catalogDiv dl{
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #c6c6c6;line-height:17px; padding:10px 0; float:left; width:534px;
+}
+.catalogDiv dt {height:17px;float:left;
+	font-weight: bold;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #E5E5E5; padding:0 15px;
+}
+.catalogDiv dd {width:430px; line-height:17px; float:left
+}
+.catalogDiv dd ul li {padding:0px 8px;float:left;}
+.cateJumpMenu {
+	FLOAT: left; WIDTH: 180px; HEIGHT: 17px; background:#FFFFFF;
+}
+.cateJumpMenu IMG {
+	MARGIN: 5px 0px 0px 9px
+}
+.cart DIV#ECS_CARTINFO {
+	MARGIN: 14px 0px 0px 61px; TEXT-ALIGN: right
+}
+#left_ad{ float:right; width:240px;}
+#left_ad img{ margin-left:5px; float:right;}
+#left_ad a{ margin:0; padding:0;}
+
+.pagebar *{ vertical-align: middle;}
+.pagebar .cont{border:1px solid #CCC; padding:0 3px;color:#666}
+.pagebar .cont:hover{border:1px solid #6cf; color:#FFFFFF}
+.pagebar .page_now{ border:1px solid #6cf;padding:0 3px; background:#6cF; color:#FFF;}
+
+.brand_dian{ cursor:pointer; display: block; width:100px; float:100px; float:left; text-align: center; margin:5px 18px;}
+.brand_dian:hover{ background:#f5f5f5;}
+
+
+.flowBox h6{ height:25px;line-height:25px;  background:#f5f5f5; border-bottom:1px solid #e5e5e5; font-weight:normal; padding-left:10px; margin-bottom:5px;}
+.flowBox{ border:1px solid #e5e5e5; padding-bottom:5px; margin-bottom:10px;}
+.flowBox table td{ padding:4px;}
+.flowBox table th{ padding:4px;}
+
+.flowBox1{padding-bottom:5px; margin-bottom:10px;}
+.flowBox1 table td{ padding:0px;}
+.flowBox1 table th{ padding:0px;}
+.flowBox1 h6{ height:25px;line-height:25px;  background:#f5f5f5; border-bottom:1px solid #e5e5e5; font-weight:normal; padding-left:10px; margin-bottom:5px;}
+
+.flowBox1 .table td{ padding:4px;}
+
+.inputBg{ border:1px solid #ddd; height:18px;line-height:18px;}
+
+
+/*购物车提示点击更新按钮式样2.6.2版本添加*/
+.messageli {
+ list-style-type:none;
+ padding:5px;
+ color:red
+}
+.messagediv {
+ font-size:12px;
+ position:absolute;
+ border:1px solid #FFD700;
+ text-align:center;
+ padding:5px;
+ background-color:#FFFACD;
+ filter:alpha(opacity=50);
+ -moz-opacity:0.7;
+ opacity: 0.7;
+}
+
+
+.f1{color:#ff6666;}
+  .f2{color:#006bd0; font-weight:bold; margin-right:15px;}
+  .f3{color:#9e9e9e;}
+  .f4{color:#fe596a;}
+  .f4_b{color:#fe596a; font-weight:bold;}
+  .f5{ font-size:14px; font-weight:bold;}
+  .f6{color:#006bd0;}
+  .market{ font-size:14px; text-decoration:line-through;}
+  .shop{color:#fe596a; font-size:14px; font-weight:600;}
+  .market_s{text-decoration:line-through;}
+  .shop_s{color:#fe596a;}
+  
+  
+.content DIV {
+	MARGIN-BOTTOM: 20px
+}
+.content #content_tittle{FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #2fa8e4}
+.content #content_tittle a{FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #2fa8e4}
+.content H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #2fa8e4
+}
+.content H2 A {
+	
+}
+.content H3 {
+	DISPLAY: block; background:#fff;
+}
+
+.content H3 STRONG {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; COLOR: #ffffff; PADDING-TOP: 5px; BACKGROUND-COLOR: #2fa8e4
+}
+.content P {
+	DISPLAY: block; MARGIN: 8px; LINE-HEIGHT: 150%; 
+}
+.content P a{
+	color:#2fa8e4;
+}
+.content DL {
+	DISPLAY: block; MARGIN: 8px; LINE-HEIGHT: 150%;
+}
+.content A.strong-1 {
+	COLOR: #ff6699; TEXT-DECORATION: none
+}
+.tablestyle-1 TH {
+	BORDER-RIGHT: #e5e5e5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #e5e5e5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #e5e5e5 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #e5e5e5 1px solid; BACKGROUND-COLOR: #f0f0f0; TEXT-ALIGN: center
+}
+.tablestyle-1 TD {
+	BORDER-RIGHT: #e5e5e5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #e5e5e5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #e5e5e5 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #e5e5e5 1px solid
+}
+.content .quote {
+	BORDER-RIGHT: #e5e5e5 1px dashed; PADDING-RIGHT: 5px; BORDER-TOP: #e5e5e5 1px dashed; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 5px; BORDER-LEFT: #e5e5e5 1px dashed; PADDING-TOP: 5px; BORDER-BOTTOM: #e5e5e5 1px dashed; BACKGROUND-COLOR: #f5f5f5
+}
+.content IMG {
+	VERTICAL-ALIGN: middle
+}
+.content DIV.links {
+	MARGIN: 10px 0px
+}
+.content DIV.links UL {
+	FLOAT: left
+}
+.content DIV.links LI {
+	DISPLAY: block; MARGIN: 10px 5px; WIDTH: 88px; LINE-HEIGHT: 32px; HEIGHT: 32px; TEXT-ALIGN: center
+}
+.content DIV.links LI A {
+	DISPLAY: block; WIDTH: 88px; COLOR: #2fa8e4; HEIGHT: 32px
+}
+.content DIV.links LI A:hover {
+	DISPLAY: block; WIDTH: 88px; COLOR: #2fa8e4; HEIGHT: 32px
+}
+.content DIV.links LI A:hover {
+	COLOR: #ff6699; BACKGROUND-COLOR: #f5f5f5
+}
+.content DIV.links .txt LI {
+	WIDTH: 120px
+}
+.content DIV.links .txt LI A {
+	WIDTH: 120px
+}
+.content DIV.links .txt LI A:hover {
+	WIDTH: 120px
+}
+.content DL.imlist DT {
+	FLOAT: left; WIDTH: 60px; LINE-HEIGHT: 35px; HEIGHT: 35px
+}
+.content DL.imlist DD {
+	LINE-HEIGHT: 35px; HEIGHT: 35px
+}
+
+
+
+.user_menu {
+	BORDER-RIGHT: #e5e5e5 1px solid; BORDER-TOP: #e5e5e5 1px solid; MARGIN: 0px 20px 0px 10px; BORDER-LEFT: #e5e5e5 1px solid; BORDER-BOTTOM: #e5e5e5 1px solid
+}
+.user_menu H2 {
+	BACKGROUND-POSITION: 5px 10px; BACKGROUND-IMAGE: url(images/title_user_menu.png); MARGIN-BOTTOM: 8px
+}
+.user_menu UL {
+	PADDING-RIGHT: 0px; BORDER-TOP: #e5e5e5 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; MARGIN: 0px 5px; PADDING-TOP: 5px
+}
+.user_menu LI {
+	BACKGROUND-POSITION: 90% 50%; BACKGROUND-IMAGE: url(images/icon_arrow_right_3.png); LINE-HEIGHT: 30px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 30px
+}
+.user_menu LI.current {
+	BACKGROUND-IMAGE: url(images/icon_arrow_right.png); BACKGROUND-COLOR: #f5f5f5
+}
+.user_menu LI.current A {
+	COLOR: #2fa8e4
+}
+.user_menu A {
+	DISPLAY: block; PADDING-LEFT: 15px; FONT-SIZE: 12px; HEIGHT: 30px
+}
+.user_menu A:hover {
+	BACKGROUND-POSITION: 90% 50%; BACKGROUND-IMAGE: url(images/icon_arrow_right.png); BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #f5f5f5; TEXT-DECORATION: none
+}
+.twoColMainRt .userInfo {
+	FLOAT: left; WIDTH: 500px
+}
+.userWelcome {
+	MARGIN: 10px
+}
+.userWelcome STRONG {
+	COLOR: #ff6699
+}
+.userInfo .div-box_1 H3 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; FONT-WEIGHT: normal; FONT-SIZE: 14px; PADDING-BOTTOM: 5px; COLOR: #2fa8e4; MARGIN-RIGHT: 10px; PADDING-TOP: 0px; BORDER-BOTTOM: #e5e5e5 1px solid
+}
+.userInfo .div-box_1 UL {
+	MARGIN-LEFT: 10px
+}
+.userInfo .div-box_1 LI {
+	MARGIN-TOP: 10px
+}
+.user .myBonus H3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 14px; MARGIN: 10px auto; TEXT-ALIGN: center
+}
+.user .pages {
+	MARGIN: 0px 0px 15px; BORDER-TOP-STYLE: none
+}
+.user INPUT.text {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; WIDTH: 200px; PADDING-TOP: 0.2em
+}
+.user DL {
+	PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+.user HR {
+	BORDER-TOP: #e5e5e5 1px dotted
+}
+.user TABLE {
+	WIDTH: 100%; BORDER-COLLAPSE: collapse
+}
+.user TH {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; TEXT-ALIGN: center
+}
+.user TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; TEXT-ALIGN: center
+}
+.user TH {
+	BORDER-RIGHT: #e5e5e5 1px solid; BORDER-BOTTOM: #e5e5e5 1px solid
+}
+.user TH.last {
+	BORDER-RIGHT-STYLE: none
+}
+.user TD {
+	BACKGROUND-POSITION: 0px 100%; BACKGROUND-IMAGE: url(images/line_dotted_x.gif); BACKGROUND-REPEAT: repeat-x
+}
+.user .myOrderDetail P {
+	MARGIN: 10px
+}
+.myAccount P {
+	MARGIN: 10px
+}
+.myTag P {
+	MARGIN: 10px
+}
+.user .myOrderDetail DL {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.user .myOrderDetail DT {
+	FONT-WEIGHT: bold; FLOAT: left; WIDTH: 80px; LINE-HEIGHT: 25px; HEIGHT: 25px
+}
+.user .myOrderDetail DD {
+	LINE-HEIGHT: 25px; HEIGHT: 25px
+}
+.user .myOrderDetail DD .div-payment {
+	DISPLAY: inline
+}
+.user .myOrderDetail SPAN.returnToCart {
+	BORDER-RIGHT: #e5e5e5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #e5e5e5 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; MARGIN-LEFT: 600px; BORDER-LEFT: #e5e5e5 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #e5e5e5 1px solid; BACKGROUND-COLOR: #fff
+}
+.myAccount CAPTION {
+	DISPLAY: none
+}
+.myAccount TH {
+	BORDER-TOP: #e5e5e5 1px solid
+}
+.myAccount TD.last {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; TEXT-ALIGN: left
+}
+.user .myMessage DL {
+	BACKGROUND-POSITION: 0px 0px; BACKGROUND-IMAGE: url(images/line_dotted_x.gif); BACKGROUND-REPEAT: repeat-x
+}
+.user .myMessage DL.first {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.user .myMessage FIELDSET {
+	PADDING-RIGHT: 0px; BORDER-TOP: #ddd 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 10px; MARGIN: 10px 80px; PADDING-TOP: 15px; BORDER-BOTTOM: #ddd 1px solid; BACKGROUND-COLOR: #f5f5f5
+}
+.user .myMessage FIELDSET INPUT.text {
+	WIDTH: 200px
+}
+.user P.buttons {
+	MARGIN-LEFT: 91px
+}
+.user .myMessage DT.title {
+	FONT-WEIGHT: bold
+}
+.user .myMessage DD.time {
+	FONT-SIZE: 9px
+}
+.user .myMessage DL.reply {
+	BACKGROUND-IMAGE: none; BACKGROUND-COLOR: #f5f5f5
+}
+.user .myMessage DL.reply DT.title {
+	COLOR: #2fa8e4
+}
+.myAddress FIELDSET P SPAN {
+	FLOAT: left; MARGIN-BOTTOM: 8px; WIDTH: 320px
+}
+.myAddress FIELDSET STRONG {
+	FONT-WEIGHT: normal; COLOR: #ff6699
+}
+.user_passport .mainContent {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.user_passport P.buttons {
+	MARGIN-LEFT: 135px
+}
+.divGetPassword P.buttons {
+	DISPLAY: inline; MARGIN-LEFT: 376px
+}
+.divResetPassword P.buttons {
+	DISPLAY: inline; MARGIN-LEFT: 376px
+}
+.divLogin {
+	BACKGROUND-POSITION: 22px 14px; BACKGROUND-IMAGE: url(images/bg_login.png); MARGIN: 20px 0px; BACKGROUND-REPEAT: no-repeat; POSITION: relative; HEIGHT: 450px; BACKGROUND-COLOR: #f0f0f0
+}
+.divGetPassword {
+	BACKGROUND-POSITION: 22px 14px; BACKGROUND-IMAGE: url(images/bg_login.png); MARGIN: 20px 0px; BACKGROUND-REPEAT: no-repeat; POSITION: relative; HEIGHT: 450px; BACKGROUND-COLOR: #f0f0f0
+}
+.divResetPassword {
+	BACKGROUND-POSITION: 22px 14px; BACKGROUND-IMAGE: url(images/bg_login.png); MARGIN: 20px 0px; BACKGROUND-REPEAT: no-repeat; POSITION: relative; HEIGHT: 450px; BACKGROUND-COLOR: #f0f0f0
+}
+.divLogin H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 300px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; PADDING-TOP: 22px
+}
+.divGetPassword H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 300px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; PADDING-TOP: 22px
+}
+.divResetPassword H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 300px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; PADDING-TOP: 22px
+}
+.divGetPassword .divForm {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; MARGIN: 10px; BORDER-LEFT: #fff 1px solid; BORDER-BOTTOM: #fff 1px solid; HEIGHT: 340px; BACKGROUND-COLOR: #fff
+}
+.divResetPassword .divForm {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; MARGIN: 10px; BORDER-LEFT: #fff 1px solid; BORDER-BOTTOM: #fff 1px solid; HEIGHT: 340px; BACKGROUND-COLOR: #fff
+}
+.divLogin .newMember {
+	BACKGROUND-POSITION: 45px 25px; WIDTH: 455px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; TOP: 50px; HEIGHT: 390px; BACKGROUND-COLOR: #fff
+}
+.divLogin .oldMember {
+	BACKGROUND-POSITION: 45px 25px; WIDTH: 455px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; TOP: 50px; HEIGHT: 390px; BACKGROUND-COLOR: #fff
+}
+.divLogin .newMember {
+	LEFT: 10px; BACKGROUND-IMAGE: url(images/bg_login_newmember.png)
+}
+
+.divLogin .oldMember {
+	RIGHT: 10px; BACKGROUND-IMAGE: url(images/bg_login_oldmember.png)
+}
+.divLogin FIELDSET {
+	MARGIN-TOP: 100px
+}
+.divGetPassword FIELDSET {
+	MARGIN-TOP: 100px
+}
+.divResetPassword FIELDSET {
+	MARGIN-TOP: 100px
+}
+.divLogin P {
+	DISPLAY: block; MARGIN: 0px 0px 15px 35px
+}
+.divGetPassword P {
+	DISPLAY: block; MARGIN: 0px 0px 15px 35px
+}
+.divResetPassword P {
+	DISPLAY: block; MARGIN: 0px 0px 15px 35px
+}
+.divGetPassword P {
+	MARGIN-LEFT: 275px
+}
+.divResetPassword P {
+	MARGIN-LEFT: 275px
+}
+.divLogin LABEL {
+	DISPLAY: block; FLOAT: left; WIDTH: 80px; MARGIN-RIGHT: 20px; TEXT-ALIGN: right
+}
+.divGetPassword LABEL {
+	DISPLAY: block; FLOAT: left; WIDTH: 80px; MARGIN-RIGHT: 20px; TEXT-ALIGN: right
+}
+.divResetPassword LABEL {
+	DISPLAY: block; FLOAT: left; WIDTH: 80px; MARGIN-RIGHT: 20px; TEXT-ALIGN: right
+}
+.divLogin INPUT.text {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; WIDTH: 200px; PADDING-TOP: 0.2em; BACKGROUND-COLOR: #f0f0f0
+}
+.divGetPassword INPUT.text {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; WIDTH: 200px; PADDING-TOP: 0.2em; BACKGROUND-COLOR: #f0f0f0
+}
+.divResetPassword INPUT.text {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.2em; WIDTH: 200px; PADDING-TOP: 0.2em; BACKGROUND-COLOR: #f0f0f0
+}
+.divLogin INPUT.image {
+	MARGIN-RIGHT: 10px
+}
+.divGetPassword INPUT.image {
+	MARGIN-RIGHT: 10px
+}
+.divResetPassword INPUT.image {
+	MARGIN-RIGHT: 10px
+}
+.divLogin EM {
+	MARGIN-TOP: 10px; DISPLAY: block; MARGIN-LEFT: 35px; COLOR: #ff6699; FONT-STYLE: normal
+}
+.divGetPassword EM {
+	MARGIN-TOP: 10px; DISPLAY: block; MARGIN-LEFT: 35px; COLOR: #ff6699; FONT-STYLE: normal
+}
+.divResetPassword EM {
+	MARGIN-TOP: 10px; DISPLAY: block; MARGIN-LEFT: 35px; COLOR: #ff6699; FONT-STYLE: normal
+}
+
+/*********************放大镜配置文件*******************************************************************************************/
+
+/* Copyright 2008 MagicToolBox.com. To use this code on your own site, visit http://magictoolbox.com */
+
+/* CSS class for zoomed area */
+.MagicZoomBigImageCont {
+	border:			1px solid #ccc;
+}
+
+/* Header look and feel CSS class */
+/* header is shown if "title" attribute is present in the <A> tag */
+.MagicZoomHeader {
+	font:			12px Tahoma, Verdana, Arial, sans-serif;
+	color:			#fff;
+	background:		#ccc;
+	text-align:     center !important; 
+}
+
+
+/* CSS class for small looking glass square under mouse */
+.MagicZoomPup {
+	border: 		1px solid #aaa;
+	background: 	#ffffff;
+	cursor:			hand;
+}
+
+/* CSS style for loading animation box */
+.MagicZoomLoading {
+	text-align:		center;
+	background: 	#ffffff;
+	color:			#444;
+	border: 		1px solid #ccc;
+	opacity:		0.8;
+	padding:		3px 3px 3px 3px !important;
+	display: 		none; /* do not edit this line please */
+}
+
+/* CSS style for gif image in the loading animation box */
+.MagicZoomLoading img {
+	padding-top:	3px !important;
+}
+/* ©2008 MagicToolbox.com. To use this code on your own site, visit http://www.magictoolbox.com */
+
+/* CSS class for thumbnail link <A> */
+.MagicThumb {
+    cursor: url(images/zoomin.cur), pointer;
+    outline: none;
+}
+
+/* CSS class for the thumbnail link <A> when the big image is zoomed */
+.MagicThumb-zoomed { cursor: default; }
+
+/* CSS class for span inside the thumbnail <A> */
+.MagicThumb span { display: none; }
+
+/* CSS class for the thumbnail image */
+.MagicThumb img { border: 1px solid #ccc; outline: none; }
+
+/* CSS class for the big image while zooming */
+.MagicThumb-image { border: 1px solid #cccccc; outline: none; }
+
+/* CSS class for the zoomed big image */
+.MagicThumb-image-zoomed { cursor: url(images/zoomout.cur), pointer; }
+
+/* CSS class for the caption under the big zoomed image */
+.MagicThumb-caption {
+    color: #333333;
+    background-color: #F0F0F0;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+    font-family: Verdana, Helvetica;
+    font-size: 11px;
+    padding: 8px 16px;
+}
+
+/* CSS class for the control bar */
+.MagicThumb-controlbar {
+	display: block;
+	height: 18px;
+}
+
+.MagicThumb-controlbar a {
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: 0px 1px;
+	outline: none;
+	float: left;
+	overflow: hidden;
+}
+
+.MagicThumb-controlbar a span {
+	display: block;
+	width: 1000px;
+	height: 1000px;
+	background: transparent url(images/controlbar.png) no-repeat 0 0;
+	outline: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+/* CSS class for the loading message box */
+.MagicThumb-loading {
+	border: 1px solid #000000;
+	background: #ffffff url(images/loader.gif) no-repeat 2px 50%;
+	padding: 2px 2px 2px 22px;
+	margin: 0;
+	text-decoration: none;
+	text-align: left;
+	font-size: 8pt;
+	font-family: sans-serif;
+}
+	.picture{
+
+	}
+	 .picture img{
+
+	}
+	.picture img.onbg{
+	background:#f90; padding:1px;
+	}
+	.picture img.autobg{
+	background:#e5e5e5; padding:1px;
+	
+	}
+
+ /* ====================
+     用户中心
+==================== */
+.box_2{border:1px solid #f5f5f5;}
+    .box_1 .userCenterBox{border:4px solid #f1faff; background-color:#fff;}
+    .usBox{background:#f2f2f2; border:1px solid #e2e2e2; padding:15px; width:928px;}
+    .usBox_1{background:#fff; text-align:left; width:297px; height:208px; padding:23px 123px 80px 43px;}
+    .usBox_1 .logtitle{height:44px;  background:url(images/bg_login_oldmember.png) 0 0 no-repeat; margin-bottom:20px;}
+    .us_Submit{border:none; width:120px; height:30px; background:url(images/bnt_ur_log.gif);}
+    .us_Submit_reg{border:none; width:120px; height:30px; background:url(images/bnt_ur_reg.gif);}
+    .usTxt{width:325px; height:267px; padding:43px 0 0 60px; background:#f2f2f2; float:right;
+    text-align:left; background:url(images/ur_bg1.gif) no-repeat 0 50%; line-height:23px;
+    }
+    .usTxt img{margin-top:15px;}
+    /*注册*/
+    .usBox_2{background:#fff; text-align:left; padding:43px 153px 60px 123px;}
+	.usBox_1 .inputBg,.usBox_2 .inputBg{ background:#f0f0f0;}
+	.usBox_1 table td,.usBox_2 table td{ padding:2px;}
+	
+    .usBox_2 .regtitle{height:44px; background: url(images/bg_login_newmember.png) 0 0 no-repeat; margin-bottom:20px;}
+   

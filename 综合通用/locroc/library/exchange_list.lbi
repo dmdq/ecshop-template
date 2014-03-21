@@ -1,0 +1,122 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="globalModule" id="globalGoodsList" >
+   <h3><div class="globalGoodsListMenu" >
+    <form method="get" action="#" class="sort" name="listform">
+      <span class="globalGoodsListMenuDisplay">
+        <a href="javascript:;" onClick="javascript:display_mode('grid')"><img src="../images/btn_display_mode_grid<!-- {if $pager.display == 'grid'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.grid}" /></a> <a href="javascript:;" onclick="javascript:display_mode('list')"><img src="../images/btn_display_mode_list<!-- {if $pager.display == 'list'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.list}" /></a>  <a href="javascript:;" onClick="javascript:display_mode('text')"><img src="../images/btn_display_mode_text<!-- {if $pager.display == 'text'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.text}" /></a>
+      </span>
+      <select name="sort">
+        {html_options options=$lang.sort selected=$pager.sort}
+      </select>
+      <select name="order">
+        {html_options options=$lang.order selected=$pager.order}
+      </select>
+      <input type="image" name="imageField" src="../images/btn_submit.gif" />
+      <input type="hidden" name="category" value="{$category}" />
+      <input type="hidden" name="display" value="{$pager.display}" id="display" />
+      <input type="hidden" name="brand" value="{$brand_id}" />
+      <input type="hidden" name="price_min" value="{$price_min}" />
+      <input type="hidden" name="price_max" value="{$price_max}" />
+      <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+      <input type="hidden" name="page" value="{$pager.page}" />
+    </form>
+  </div></h3>
+
+    <form name="compareForm" method="post">
+    <!-- {if $pager.display == 'list'} -->
+      <div class="itemList">
+      <!--{foreach name=goods_list from=$goods_list item=goods}-->
+        
+        
+        
+        <div class="item">
+      <p class="pic">
+        <a href="{$goods.url}"><img  style="width:150px; height:150px;" src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a>
+      </p>
+      <div class="itemListInfo">
+        <p class="name">
+          <a href="{$goods.url}" title="{$goods.name|escape:html}">
+            <!-- {if $goods.goods_style_name} -->
+            {$goods.goods_style_name}
+            <!-- {else} -->
+            {$goods.goods_name}
+            <!-- {/if} -->
+          </a>
+        </p>
+        <p class="price">
+          {$lang.exchange_integral}<span class="goodsPrice">{$goods.exchange_integral}</span>
+        </p>
+        <p class="brief">{$goods.goods_brief|truncate:50}</p>
+        <p class="btnList">
+          <a href="javascript:collect({$goods.goods_id})">{$lang.btn_collect}</a> | <a href="javascript:addToCart({$goods.goods_id})">{$lang.btn_buy}</a> | <a href="javascript:;" onClick="Compare.add({$goods.goods_id},'{$goods.goods_name}')">{$lang.compare}</a>
+        </p>
+      </div>
+    </div>
+      <!--{/foreach}-->
+      </div>
+
+    <!-- {elseif $pager.display == 'grid'} -->
+      <div class="itemGrid">
+        <div class="clearfix goodsBox" style="border:none;">
+        <!--{foreach from=$goods_list item=goods}-->
+          <!-- {if $goods.goods_id} -->
+            
+            
+            
+            
+            <div class="item">
+      <p class="pic" >
+        <a href="{$goods.url}"><img  style="width:150px; height:150px;" src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a>
+      </p>
+	  <p   style="width:148px;height:15px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap">   
+   <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a></p> 
+
+      <p class="price">
+      
+       <span class="goodsPrice">{$lang.exchange_integral}{$goods.exchange_integral}</span>
+       
+      </p>
+      
+     
+    </div>
+          <!--{/if}-->
+        <!--{/foreach}-->
+        </div>
+      </div>
+
+    <!-- {elseif $pager.display == 'text'} -->
+      <div class="goodsList">
+      <!--{foreach from=$goods_list item=goods}-->
+        <ul class="clearfix bgcolor" <!--{if $smarty.foreach.goods_list.index mod 2 eq 0}-->id=""<!--{else}-->id="bgcolor"<!--{/if}-->>
+          <li class="goodsName">
+            <a href="{$goods.url}" class="f6 f5">
+            <!-- {if $goods.goods_style_name} -->
+              {$goods.goods_style_name}<br />
+            <!-- {else} -->
+              {$goods.goods_name}<br />
+            <!-- {/if} -->
+            </a>
+            <!-- {if $goods.goods_brief} -->
+              {$lang.goods_brief}{$goods.goods_brief}<br />
+            <!-- {/if} -->
+          </li>
+          <li>
+            {$lang.exchange_integral}<font class="shop_s">{$goods.exchange_integral}</font>
+          </li>
+        </ul>
+      <!--{/foreach}-->
+      </div>
+    <!-- {/if} -->
+    </form>
+
+  </div>
+
+
+<script type="text/javascript">
+  window.onload = function()
+  {
+    Compare.init();
+    fixpng();
+  }
+  var button_compare = '';
+</script>

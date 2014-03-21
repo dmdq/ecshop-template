@@ -1,0 +1,154 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div style="height:140px;">
+
+	<div id="Header_left">
+	  <div id="logo">
+        
+      
+	    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="165" height="80">
+          <param name="movie" value="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/images/logo.swf">
+          <param name="quality" value="high">
+          <embed src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/images/logo.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="165" height="80"></embed>
+        </object>
+	  </div>
+</div>
+	<div id="Header_right"> 
+		<!-- TemplateBeginEditable name="会员区" -->
+		<!-- #BeginLibraryItem "/library/member.lbi" -->
+		
+		{insert_scripts files='transport.js,utils.js'}
+		<div id="ECS_MEMBERZONE">
+		  {* 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}
+		</div>
+		 <!-- #EndLibraryItem -->
+		<div id="Header_nav">
+			<ul id="globalTopNav">
+		<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+			<li{if $smarty.foreach.nav_top_list.last} id="globalTopNavLast"{/if}><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->>{$nav.name}</a></li>
+			<!-- {/foreach} -->
+			</ul>
+		</div>
+		<div id="Header_meun">
+			<div id="Header_meun_l">
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="550" height="72">
+                <param name="movie" value="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/images/meun.swf">
+                <param name="quality" value="high">
+                <embed src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/images/meun.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="550" height="72"></embed>
+              </object>
+			</div>	
+			<div id="Header_meun_r">
+			<dl>
+				
+	  您选购{insert name='cart_info'}件商品<br><a href="flow.php">请到收银台结帐</a>
+	    
+				
+			</div>		
+		</div>		
+	
+
+	</div>
+	
+<DIV class=catalogDiv id=ECS_CATALOG 
+onmouseover="if (this.style.display != 'block') this.style.display='block';" 
+style="DISPLAY: none" 
+onmouseout="if (this.style.display != 'none') this.style.display = 'none';">
+
+
+<!--{foreach from=$categories item=cat}-->
+<dl>  
+<dt>
+<a href="{$cat.url}">{$cat.name|escape:html}</a>
+</dt>
+<dd>
+
+	<ul>
+      <!--{foreach from=$cat.cat_id item=child}-->
+       <li>&nbsp;&nbsp;<a href="{$child.url}">{$child.name|escape:html}</a></li>
+       <!--{/foreach}-->
+	</ul>
+
+</dd>
+<div style="clear:both"></div>
+
+</dl>
+<!-- {/foreach} -->
+
+</DIV>
+
+<DIV class=cateJumpMenu id=cateJump>
+<SCRIPT type=text/javascript>
+<!--
+function jumpToCate(selObj){ //v3.0
+  eval("window.location='category-"+selObj.options[selObj.selectedIndex].value+"-b0.html'");
+}
+//-->
+  </SCRIPT>
+  <script type="text/javascript">
+//<![CDATA[
+{literal}
+window.onload = function()
+{
+  fixpng();
+}
+function checkSearchForm()
+{
+    if(document.getElementById('keyword').value)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+{/literal}
+//]]>
+</script>  
+<!--select name="cateJumpMenu" id="cateJumpMenu" onChange="javascript:jumpToCate(this);">
+    <option value="0"></option>
+  </select--><A 
+onmouseover=showCatalog(this) onmouseout=hideCatalog() 
+href="search.php"><img class="easyshop" src="../images/img_easyshopping.png" border=0>
+ </A></DIV>	
+	
+<div id="globalNav">
+   <ul>
+       <li{if $navigator_list.config.index eq 1} id="currentPage"{/if}><a href="../index.php">{$lang.home}</a></li>
+    <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+    <li{if $nav.active eq 1} id="currentPage"{/if}><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->>{$nav.name}</a></li>
+    <!-- {/foreach} -->
+  </ul>
+  <div>  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+    <input name="keywords" type="text" id="keyword" value="商品搜索" onclick="javascript:this.value='';this.style.color='#555555';" class="globaltext_key"  />
+    <input type="image" src="../images/btn_search.gif" class="vAlign"  />
+  </form>
+  </div>
+</div>
+	
+	
+	
+
+</div><!-- /globalHeader -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

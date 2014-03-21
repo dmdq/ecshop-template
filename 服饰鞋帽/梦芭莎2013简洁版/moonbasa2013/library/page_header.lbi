@@ -1,0 +1,118 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_moonbasa2013/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_moonbasa2013/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+<DIV class=header_div>
+<DIV class=header >
+<DIV style="POSITION: relative;margin-left:0px;" class=logo ><A href="index.php"><IMG alt=梦芭莎全球时尚女性购物平台 src="../images/logo.gif"> </A></DIV>
+<DIV class=logininfo_outdiv >
+<DIV class=top_cart>
+<div class="cart" id="ECS_CARTINFO">
+<SPAN class=cart_bg> {insert name='cart_info'}</SPAN>
+</div>
+</DIV>
+<DIV class=helpmsg><SPAN>|</SPAN><A class=help  href="article_cat.php?id=6"  >帮助中心</A><SPAN>|</SPAN><A  class=kefu href="#">在线客服</A></DIV>
+
+<div id=logininfo>
+   {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font> 
+ 
+ </div>
+
+<DIV id=divSiteMsg></DIV></DIV>
+<DIV class=re-search>
+<div class="search_keyw_div">
+<div  class=fsearch1 >   
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
+ <SPAN class=inp>
+   <input name="keywords" type="text" id="keyword" value="商品名" onclick="javascript:this.value=''" class="sinp ac_input"/>
+   </SPAN>
+   <SPAN class=sub> <input style="CURSOR: pointer" name="imageField" type="submit" class=s  value="提交"  /></SPAN> 
+  
+   </form>
+   </DIV>
+  <DIV class=hot_keywords1>
+ 
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+	
+    </script>
+    {if $searchkeywords}
+ 
+   {foreach from=$searchkeywords item=val}
+ 
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a> &nbsp;|&nbsp;                    
+
+   {/foreach}
+   {/if}
+ 
+  </div>
+  </div>
+</div>
+</DIV>
+<DIV class=clear></DIV>
+
+<DIV class=brandmenu style="width:980px; margin:0 auto;">
+<UL>
+  <LI><A class=hlogo1 title=时尚内衣 href="#" target=_blank>时尚内衣</A></LI>
+  <LI><A class=hlogo2 title=梦芭莎优雅女装 href="#" target=_blank>优雅女装</A></LI>
+  <LI><A class=hlogo3 title=梦芭莎休闲女装 href="#"  target=_blank>休闲女装</A></LI>
+  <LI><A class=hlogo4 title=梦芭莎日韩女装 href="#" target=_blank>日韩女装</A></LI>
+  <LI><A class=hlogo5 title=欧式女装 href="#"  target=_blank>欧式女装</A></LI>
+  <LI><A class=hlogo6 title=原创女装 href="#" target=_blank>原创女装</A></LI>
+  <LI><A class=hlogo7 title=成熟女装 href="#" target=_blank>成熟女装</A></LI>
+  <LI><A class=hlogo8 title=年轻潮牌 href="#"  target=_blank>年轻潮牌</A></LI>
+  <LI><A class=hlogo9 title=梦芭莎运动女装 href="#" target=_blank>运动女装</A></LI>
+  <LI><A class=hlogo10 title=彩妆护肤 href="#" target=_blank>彩妆护肤</A></LI>
+  <LI style="POSITION: absolute"><A class=hlogo11 title=高端商务男装  href="#" target=_blank>高端商务男装</A> 
+  <SPAN  style="POSITION: absolute; TOP: -8px; LEFT: 42px"><IMG  src="../images/tuijian.gif"></SPAN> 
+  </LI>
+ </UL>
+</DIV>
+ </DIV>
+
+<div class="blank" style="height:0"></div>
+
+<div class="menucon " >
+
+
+<div class="block">
+    <div class="all-catalog" >
+      <a href="catalog.php" class="all-btn"> </a>        
+    </div>
+
+  <div class="channel">
+    <ul>
+      <li  class="m-home" > <a href="../index.php" id="aa_on" >{$lang.home}</a></li>
+        <!-- {foreach name=no from=$navigator_list.middle item=nav } -->
+      <li  class="m-home" ><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    >{$nav.name}</a></li>
+<!-- {/foreach} -->
+
+
+</ul>
+</div>
+</div>
+
+</div>
+
+
+
+

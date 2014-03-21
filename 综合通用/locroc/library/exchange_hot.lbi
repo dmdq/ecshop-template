@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods}-->
+<div class="globalModule" id="globalGoodsList" >
+<h3> <div class="globalGoodsListMenu" style="float: left" >{$lang.best_goods}</div></h3>
+
+<div class="itemGrid">
+    <!--{foreach from=$hot_goods item=goods}-->
+
+      
+      
+
+      <div class="item">
+      <p class="pic" >
+        <a href="{$goods.url}"><img  style="width:150px; height:150px;" src="{$goods.thumb}" alt="{$goods.goods_name}" /></a>
+      </p>
+	  <p   style="width:148px;height:15px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap">   
+   <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a></p> 
+
+      <p class="price">
+        <span class="goodsPrice">{$lang.exchange_integral}{$goods.exchange_integral}
+      </span>
+     
+      </p>
+      
+     
+    </div>
+      
+      
+    <!--{/foreach}-->
+        </div>
+</div>  
+<!-- {/if} -->
+

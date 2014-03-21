@@ -1,0 +1,154 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_mbaobao2012/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_mbaobao2012/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div id="topNav"  >
+<div class="block">
+
+
+<div class="f_l" style="_padding-top:8px;">
+ 
+    <img src="../images/biao13.gif"> 订购热线：<b style="padding-right:30px;">{$service_phone}</b>
+ 
+
+ 
+    
+</div>
+<div class="f_r log">
+<ul>
+        <li style="float:left;  "  class="clearfix">
+       
+         {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">
+   {* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+   
+    </li>
+   
+   
+ 
+       <li style="float:left"   class="clearfix">  
+     <!--{if $navigator_list.top}-->
+        <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+       <a style=" padding:0 5px;" href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+        <!-- {/foreach} --> <!-- {/if} -->
+        </li>
+        
+        
+        
+        
+        
+        
+    </ul>
+     
+     
+</div>
+ 
+
+
+</div>
+</div>
+
+
+<div style=" clear:both"></div>
+
+
+
+
+<div class="block clearfix" style=" height:90px; position:relative; z-index:99999999">
+ <div class="f_l" style=" padding-top:15px ">
+ <a href="../index.php" name="top"><img style="float:left; padding:5px 18px 0 0" src="../images/logo.gif" /></a>
+ 
+ </div>
+
+ 
+   <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" >
+   
+  
+   
+   <div class="search_input">
+   <input name="keywords" type="text" id="keyword" value="品名或商品号" onclick="javascript:this.value=''" class="B_input"/>
+   
+   </div>
+   
+   <input name="imageField" type="submit" value=" " class="go" style="cursor:pointer;" />
+ 
+   
+   
+   
+   
+   <div class="keys">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+   热门关键词： 
+   {foreach from=$searchkeywords item=val name=no}
+   <a   <!-- {if $smarty.foreach.no.iteration<2}-->   style="color:#FF0000"   <!-- {/if} -->      href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+  </div>
+   </form>
+   
+  
+  
+ 
+
+ <div class="min-cart"  >
+ <ul>
+ {insert_scripts files='transport.js'}
+<span id="ECS_CARTINFO">
+ {insert name='cart_info'}
+</span>
+ 
+          
+            
+            
+       </ul>      
+        </div>
+ 
+
+ 
+</div>
+
+ 
+
+
+
+ <div class="g-menu">
+    <div class="menu-shadow-hack"></div>
+    <div class="g-menu-wrap">
+         
+        <div class="channel">
+            <ul>
+        <li  {if $navigator_list.config.index eq 1}  class="m-home" {/if}> <a href="../index.php" >{$lang.home}</a></li>
+  <!-- {foreach name=no from=$navigator_list.middle item=nav } -->
+  <li {if $nav.active eq 1}  class="m-home" {/if}><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    >{$nav.name}</a></li>
+ <!-- {/foreach} -->
+                
+                
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="blank index_no"></div>

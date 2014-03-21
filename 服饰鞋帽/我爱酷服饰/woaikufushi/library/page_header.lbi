@@ -1,0 +1,114 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="block clearfix" style=" position:relative; height:90px; ">
+ <a href="../index.php" name="top"><img class="logo" src="../images/logo.gif" /></a>
+
+
+	<script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+ 
+ 
+ <div class="search_out">   
+<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+<ul>
+   <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}"/>
+   <input name="imageField" type="submit" value=" " class="go" style="cursor:pointer;background: url(../images/sousuo.gif) no-repeat; width:48px; height:28px; border:none; position: relative;" />
+</ul>  
+   </form>
+      
+</div>
+
+ 
+ 
+ 
+ <div class="log">
+   <ul>  
+   
+   <li id="topNav" class="clearfix"> 
+   <img src="../images/top_l.gif" style="float:left">
+   <div style="float:left; padding-right:7px;">
+   {insert_scripts files='transport.js,utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+   
+   <!--{if $navigator_list.top}-->
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+            <!-- {if !$smarty.foreach.nav_top_list.last} -->
+             |
+            <!-- {/if} -->
+    <!-- {/foreach} -->  
+    
+     <!-- {/if} -->
+     </div>
+    <img src="../images/tel.gif" style="float:left">
+   </li>
+
+  
+
+   </ul>
+ </div>
+ 
+ 
+
+</div>
+
+    
+<div class="header_bg">
+ 
+ <b>
+  <a href="../index.php"{if $navigator_list.config.index eq 1} class="cur"{/if}>{$lang.home}</a>
+  
+  
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav name=no} -->
+  <!-- {if $smarty.foreach.no.iteration<6}-->
+  <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a>
+  <!-- {/if} -->		
+ <!-- {/foreach} -->
+  </b>
+  
+  <div style="float:left; _padding-top:18px;">
+  
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav name=no} -->
+  <!-- {if $smarty.foreach.no.iteration>5}-->
+ 
+  <a style="font-size:12px; padding:0 3px;" href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a> 
+  
+  
+   <!-- {if !$smarty.foreach.no.last} -->
+     <img src="../images/line1.gif" style="vertical-align:middle">  
+        <!-- {/if} -->
+  
+  
+  
+  <!-- {/if} -->		
+ <!-- {/foreach} -->
+ 
+ </div>
+ 
+ 
+</div>
+
+
+<div class="blank"></div><div class="blank"></div>
+
+<div class="blank"></div>

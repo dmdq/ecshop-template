@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="gallery-list">
+<!-- {if $pictures}-->
+ <div class="picture" id="imglist">
+		
+             <!-- {foreach from=$pictures item=picture name=no}-->
+             
+             <!-- {if $smarty.foreach.no.iteration < 2}  -->
+            <p>
+           <a  href="{$picture.img_url}"
+    	rel="zoom1" 
+        rev="{$picture.img_url}"
+        title="{$picture.img_desc|escape:html}">
+        <img style="width:70px; height:70px;" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$goods.goods_name}" class="onbg" /></a>
+        </p>
+           <!-- {else}-->
+           <p>
+  <a  href="{$picture.img_url}"
+    	rel="zoom1" 
+        rev="{$picture.img_url}"
+        title="{$picture.img_desc|escape:html}">
+        <img style="width:70px; height:70px;" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$goods.goods_name}" class="autobg" /></a>
+        </p>
+          <!-- {/if}-->
+            <!--{/foreach}-->
+           
+</div>
+ 
+<!-- {/if}-->
+</div>
+<script type="text/javascript">
+	mypicBg();
+</script>

@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $auction_list} -->
+<div id="globalAuction" class="globalModule">
+  <h3 class="h3_2"><span>{$lang.auction_goods}</span><a href="../auction.php"><img src="../images/more.gif" alt="" /></a></h3>
+  <div class="itemGrid1">
+    <!-- {foreach from=$auction_list item=auction} -->
+    <div class="item">
+      <p class="pic"><a href="{$auction.url}"><img src="{$auction.thumb}" alt="{$auction.goods_name|escape:html}" /></a></p>
+      <p class="name"><a href="{$auction.url}" title="{$auction.goods_name|escape:html}">{$auction.goods_name|escape:html}</a></p>
+      <p class="price">
+     <span class="goodsPrice">{$auction.formated_start_price}</span>
+      </p>
+    </div>
+    <!-- {/foreach} -->
+  </div>
+
+</div>
+<!-- {/if} -->

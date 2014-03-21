@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{$str}
+
+
+<script type="text/javascript">
+function deleteCartGoods(rec_id)
+{
+Ajax.call('delete_cart_goods.php', 'id='+rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
+}
+
+/**
+ * 接收返回的信息
+ */
+function deleteCartGoodsResponse(res)
+{
+  if (res.error)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+      document.getElementById('ECS_CARTINFO').innerHTML = res.content;
+  }
+}
+</script>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" --><!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='transport.js,common.js'}
+</head>
+
+<body>
+  <div id="container">
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+    <div id="urHere" class="globalModule globalFrame">
+      <h3>{$lang.ur_here} {$ur_here}</h3>
+    </div>
+    <div id="globalCatalogList" class="globalModule globalFrame">
+      <h3>{$lang.all_category}</h3>
+      <div class="globalModuleContent">
+        <dl>
+        <!-- {foreach name="catlist" from=$cat_list item=cat} -->
+              <dd style="margin-left:{$cat.level*2}em;">
+                <!-- {if $cat.has_children eq 0} -->
+                <a href="{$cat.url}">{$cat.cat_name}</a> <span class="textDesc">({$cat.goods_num})</span>
+              </dd>
+            <!-- {else} -->
+            <dt><a href="{$cat.url}">{$cat.cat_name}</a> <span class="textDesc">({$cat.goods_num})</span></dt>
+            <!-- {/if} -->
+        <!-- {/foreach} -->
+        </dl>
+      </div>
+    </div><!-- /globalCatalogList -->
+
+     
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+  </div><!-- /container -->
+</body>
+</html>
+

@@ -1,0 +1,127 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_masamaso/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_masamaso/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+ 
+ 
+  
+  
+  	 
+<!--logo-->
+<div class="header_top">
+    <div class="top_box">
+         
+        <div class="top_right_box">   
+            <ul  class="index_login">
+          {insert_scripts files='transport.js,utils.js'}
+             <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+            
+           
+             <!--{if $navigator_list.top}-->
+  
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+         <li>   <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+           
+    <!-- {/foreach} -->
+     
+   <!-- {/if} -->
+            
+            
+            
+            </ul>
+            
+            
+            
+            <p class="cart">
+             <span id="ECS_CARTINFO">
+            {insert name='cart_info'} 
+             </span>
+            </p>
+
+        </div>
+    </div>
+</div>
+<div class="header_box">
+    <div class="header">
+    
+    <a href="../index.php" name="top"><img src="../images/logo.gif" style="position:absolute; left:0;" /></a>
+    
+    
+    
+    <div class="tel">
+   		 
+			 <img src="../images/tel.gif"> 
+	        <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" >
+	        <div class="header_search">
+	            <div class="input_box">
+	                <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}" >
+	            </div>
+	            <div class="search1">
+              
+	                <input class="btn_s" src="../images/search1.gif" height="14" type="image" width="15">
+	            </div>
+	        </div>
+	    	</form>
+     <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    </div>
+           
+         </div>
+</div>
+<!--menu-->
+
+<div class="menu_box">
+<div id="chromemenu" class="menu">
+ 
+
+
+
+<ul style="float: left;">
+    <li class="mm0" > <a href="../index.php">{$lang.home}</a></li>
+    <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav name=noa} -->
+    <li  class="mm{$smarty.foreach.noa.iteration}"  onmouseover="this.className='mm{$smarty.foreach.noa.iteration} mm_over'" onmouseout="this.className='mm{$smarty.foreach.noa.iteration}'"  >
+   	 <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a>
+     
+ 
+    </li>
+    <!-- {/foreach} -->
+    
+    
+     
+    
+    
+</ul>
+
+
+ 
+
+ 
+</div>
+ 
+</div> 
+ 
+  
+  
+  
+  
+  
+  
+   

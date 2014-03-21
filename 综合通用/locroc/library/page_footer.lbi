@@ -1,0 +1,75 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="globalFooter">
+   <div id="footerLine"><a href="index.php"><img src="../images/icon_flower_pink.gif" alt="返回首页" /></a></div>
+   <div id="footerNav">
+    <div>
+      <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+      <a href="{$nav.url}" 
+      <!-- {if $nav.opennew eq 1} -->
+      target="_blank" 
+      <!-- {/if} -->
+      >{$nav.name}</a> 
+      <!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+      <!-- {/if} -->
+	  |
+      <!-- {/foreach} -->
+     </div>
+    <p align="right"><a href="{$feed_url}"><img src="images/xml_rss2.gif" alt="RSS" /></a></p>
+  </div>
+ 
+ 
+ <div id="foot_low">
+	 <dl>
+
+	  <dd>{$copyright}</dd>
+      <dd> <!-- QQ 号码 {foreach from=$qq item=im} -->
+      <!-- {if $im} -->
+      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束QQ号码 -->
+      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+      <!-- {if $im} -->
+      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />{$im}</a>
+      <!-- {/if} -->
+      <!--{/foreach} 结束淘宝旺旺 -->
+      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+      <!-- {if $im} -->
+      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束Yahoo Messenger -->
+      <!-- MSN Messenger {foreach from=$msn item=im} -->
+      <!-- {if $im} -->
+      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> <a href="msnim:chat?contact={$im}">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束MSN Messenger -->
+      <!-- Skype {foreach from=$skype item=im} -->
+      <!-- {if $im} -->
+      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+      <!-- {/if} -->
+  <!-- {/foreach} --></dd>
+	  <dd> {foreach from=$lang.p_y item=pv}{$pv}{/foreach}{$licensed} 
+	 	  
+	  </dd>
+	  <!-- ICP 证书{if $icp_number} -->
+	 <dd>{$lang.icp_number}: <a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a></dd>
+	  <!-- 结束ICP 证书{/if} -->
+    </dl>
+	  <div class="foot_img" style=" position:relative">
+	  <a href="https://www.alipay.com/"><img src="../images/icon_foot_alipay.gif" alt="支付宝" border="0"></a> 
+	  <a href="https://www.tenpay.com/"><img src="../images/icon_foot_tenpay.gif" alt="财付通" border="0"></a> 
+	  <a href="https://www.alipay.com/aip/index.htm"><img src="../images/links_alipaytrust.gif" alt="支付宝认证商家" border="0"></a> 
+      
+      
+      
+      
+      
+      
+      </div>
+  </div>
+
+  <script type="text/javascript">
+  //<![CDATA[
+  var process_request = "{$lang.process_request}";
+  //]]>
+  </script>
+</div><!-- /globalFooter -->

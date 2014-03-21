@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="box_4 art" style="width:256px;">
+<div class="tit2"> <span>最新动态</span> </div>
+<div class="new_article clearfix ">
+
+<ul class="t_ul_2">
+<!--{foreach from=$new_articles item=article name=no}-->
+<li><a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title}</a></li>
+
+<!--{/foreach}-->
+</ul>
+
+</div>
+
+</div>
+<div class="blank"></div>

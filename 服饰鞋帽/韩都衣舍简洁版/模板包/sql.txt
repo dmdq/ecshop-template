@@ -1,0 +1,139 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.9.2
+-- http://www.phpmyadmin.net
+--
+-- 主机: localhost:3306
+-- 生成日期: 2013 年 10 月 10 日 04:54
+-- 服务器版本: 5.0.45
+-- PHP 版本: 5.2.4
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- 数据库: `mbvjia273`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ecs_ad`
+--
+
+DROP TABLE IF EXISTS `ecs_ad`;
+CREATE TABLE IF NOT EXISTS `ecs_ad` (
+  `ad_id` smallint(5) unsigned NOT NULL auto_increment,
+  `position_id` smallint(5) unsigned NOT NULL default '0',
+  `media_type` tinyint(3) unsigned NOT NULL default '0',
+  `ad_name` varchar(60) NOT NULL default '',
+  `ad_link` varchar(255) NOT NULL default '',
+  `ad_code` text NOT NULL,
+  `start_time` int(11) NOT NULL default '0',
+  `end_time` int(11) NOT NULL default '0',
+  `link_man` varchar(60) NOT NULL default '',
+  `link_email` varchar(60) NOT NULL default '',
+  `link_phone` varchar(60) NOT NULL default '',
+  `click_count` mediumint(8) unsigned NOT NULL default '0',
+  `enabled` tinyint(3) unsigned NOT NULL default '1',
+  PRIMARY KEY  (`ad_id`),
+  KEY `position_id` (`position_id`),
+  KEY `enabled` (`enabled`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=194 ;
+
+--
+-- 导出表中的数据 `ecs_ad`
+--
+
+INSERT INTO `ecs_ad` (`ad_id`, `position_id`, `media_type`, `ad_name`, `ad_link`, `ad_code`, `start_time`, `end_time`, `link_man`, `link_email`, `link_phone`, `click_count`, `enabled`) VALUES
+(193, 159, 0, '首页左侧广告', '#', '1381299093755023959.jpg', 1381219200, 1983427200, '', '', '', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ecs_ad_position`
+--
+
+DROP TABLE IF EXISTS `ecs_ad_position`;
+CREATE TABLE IF NOT EXISTS `ecs_ad_position` (
+  `position_id` tinyint(3) unsigned NOT NULL auto_increment,
+  `position_name` varchar(60) NOT NULL default '',
+  `ad_width` smallint(5) unsigned NOT NULL default '0',
+  `ad_height` smallint(5) unsigned NOT NULL default '0',
+  `position_desc` varchar(255) NOT NULL default '',
+  `position_style` text NOT NULL,
+  PRIMARY KEY  (`position_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=160 ;
+
+--
+-- 导出表中的数据 `ecs_ad_position`
+--
+
+INSERT INTO `ecs_ad_position` (`position_id`, `position_name`, `ad_width`, `ad_height`, `position_desc`, `position_style`) VALUES
+(159, '首页左侧广告', 216, 172, '', '<table cellpadding="0" cellspacing="0">\r\n{foreach from=$ads item=ad}\r\n<tr><td>{$ad}</td></tr>\r\n{/foreach}\r\n</table>');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ecs_template`
+--
+
+DROP TABLE IF EXISTS `ecs_template`;
+CREATE TABLE IF NOT EXISTS `ecs_template` (
+  `filename` varchar(30) NOT NULL default '',
+  `region` varchar(40) NOT NULL default '',
+  `library` varchar(40) NOT NULL default '',
+  `sort_order` tinyint(1) unsigned NOT NULL default '0',
+  `id` smallint(5) unsigned NOT NULL default '0',
+  `number` tinyint(1) unsigned NOT NULL default '5',
+  `type` tinyint(1) unsigned NOT NULL default '0',
+  `theme` varchar(60) NOT NULL default '',
+  `remarks` varchar(30) NOT NULL default '',
+  KEY `filename` (`filename`,`region`),
+  KEY `theme` (`theme`),
+  KEY `remarks` (`remarks`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 导出表中的数据 `ecs_template`
+--
+
+INSERT INTO `ecs_template` (`filename`, `region`, `library`, `sort_order`, `id`, `number`, `type`, `theme`, `remarks`) VALUES
+('index', '左边区域', '/library/vote_list.lbi', 8, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/email_list.lbi', 9, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/order_query.lbi', 6, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/cart.lbi', 0, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/promotion_info.lbi', 3, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/auction.lbi', 4, 0, 3, 0, 'default', ''),
+('index', '左边区域', '/library/group_buy.lbi', 5, 0, 3, 0, 'default', ''),
+('index', '', '/library/recommend_promotion.lbi', 0, 0, 4, 0, 'default', ''),
+('index', '右边主区域', '/library/recommend_hot.lbi', 2, 0, 10, 0, 'default', ''),
+('index', '右边主区域', '/library/recommend_new.lbi', 1, 0, 10, 0, 'default', ''),
+('index', '右边主区域', '/library/recommend_best.lbi', 0, 0, 10, 0, 'default', ''),
+('index', '左边区域', '/library/invoice_query.lbi', 7, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/top10.lbi', 2, 0, 0, 0, 'default', ''),
+('index', '左边区域', '/library/category_tree.lbi', 1, 0, 0, 0, 'default', ''),
+('index', '', '/library/brands.lbi', 0, 0, 11, 0, 'default', ''),
+('category', '左边区域', '/library/category_tree.lbi', 1, 0, 0, 0, 'default', ''),
+('category', '右边区域', '/library/recommend_best.lbi', 0, 0, 5, 0, 'default', ''),
+('category', '右边区域', '/library/goods_list.lbi', 1, 0, 0, 0, 'default', ''),
+('category', '右边区域', '/library/pages.lbi', 2, 0, 0, 0, 'default', ''),
+('category', '左边区域', '/library/cart.lbi', 0, 0, 0, 0, 'default', ''),
+('category', '左边区域', '/library/price_grade.lbi', 3, 0, 0, 0, 'default', ''),
+('category', '左边区域', '/library/filter_attr.lbi', 2, 0, 0, 0, 'default', ''),
+('goods', '顶部广告', '/library/ad_position.lbi', 0, 150, 1, 4, 'ecmoban_vjia', ''),
+('goods', '左侧区域', '/library/bought_goods.lbi', 0, 0, 0, 0, 'ecmoban_vjia', ''),
+('goods', '左侧区域', '/library/history.lbi', 1, 0, 0, 0, 'ecmoban_vjia', ''),
+('category', '右侧广告区域2', '/library/ad_position.lbi', 0, 149, 1, 4, 'ecmoban_vjia', ''),
+('category', '右侧广告区域1', '/library/ad_position.lbi', 0, 148, 1, 4, 'ecmoban_vjia', ''),
+('category', '', '/library/brands.lbi', 0, 0, 8, 0, 'ecmoban_vjia', ''),
+('category', '', '/library/recommend_best.lbi', 0, 0, 5, 0, 'ecmoban_vjia', ''),
+('category', '', '/library/recommend_hot.lbi', 0, 0, 5, 0, 'ecmoban_vjia', ''),
+('category', '', '/library/recommend_promotion.lbi', 0, 0, 3, 0, 'ecmoban_vjia', ''),
+('index', '左边区域', '/library/ad_position.lbi', 0, 159, 1, 4, 'ecmoban_vjia', ''),
+('index', '全宽行', '/library/cat_goods.lbi', 111, 21, 5, 1, 'ecmoban_vjia', ''),
+('index', '', '/library/brands.lbi', 0, 0, 3, 0, 'ecmoban_vjia', ''),
+('index', '促销商品区域', '/library/recommend_promotion.lbi', 0, 0, 4, 0, 'ecmoban_vjia', ''),
+('index', '', '/library/auction.lbi', 0, 0, 3, 0, 'ecmoban_vjia', ''),
+('index', '', '/library/group_buy.lbi', 0, 0, 3, 0, 'ecmoban_vjia', ''),
+('index', '全宽行', '/library/recommend_hot.lbi', 0, 0, 5, 0, 'ecmoban_vjia', ''),
+('index', '首页右侧区域', '/library/recommend_new.lbi', 0, 0, 5, 0, 'ecmoban_vjia', ''),
+('index', '全宽行', '/library/recommend_best.lbi', 2, 0, 5, 0, 'ecmoban_vjia', '');

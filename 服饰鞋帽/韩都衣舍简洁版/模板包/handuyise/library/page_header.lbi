@@ -1,0 +1,124 @@
+<html xmlns:wb=“http://open.weibo.com/wb”>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<script type="text/javascript">
+//收藏本站 bbs.ecmoban.com
+function AddFavorite(title, url) {
+  try {
+      window.external.addFavorite(url, title);
+  }
+catch (e) {
+     try {
+       window.sidebar.addPanel(title, url, "");
+    }
+     catch (e) {
+         alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+     }
+  }
+}
+</script>
+<div id="toolbar">
+  <div class="heaTop w">
+      <div class="f_l">
+      <a href="index.php" class="shouye">返回首页</a>
+    <a href="javascript:void(0);" onclick="AddFavorite('我的网站',location.href)" class="heaTopFav">收藏本站</a>   
+   {insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+   {insert_scripts files='transport.js,utils.js,jquery.SuperSlide.2.1.1.js,ecmoban_common.js'}
+   <span class="heaHalving"> 
+      <!--{if $navigator_list.top}--> 
+      <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} --> 
+      <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>    
+       <!-- {if !$smarty.foreach.nav_top_list.last} -->
+             
+            <!-- {/if} -->
+      <!-- {/foreach} --> 
+      <!-- {/if} --> 
+      </span>
+        </div>
+        
+        <div class="f_r">
+         <font id="ECS_MEMBERZONE" class="f_l">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+         <div class="f_l">
+           <font class="f_l">关注韩都</font>
+           <p class="weixin f_l">
+           <a href="#" class="wei" onmouseover="this.className='wei wei_on'" onmouseout="this.className='wei'">
+           <img src="../images/qrcode_for_hd.jpg"></a></p>
+           
+         </div>
+         
+        </div> 
+     </div>
+</div>    
+<div id="head">
+    <div class="hd">
+            <p class="heaLogo f_l"> <a href="index.php" target="_parent" title="{$shop_name}" > 
+            <img src="images/logo.gif" alt="{$shop_name}"></a> </p>
+            <div class="hd_search f_l">
+                <div class="tab_search ">
+                   <!--search start-->
+                    <div id="search"  class="clearfix">
+                      <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_r">
+                       <input name="keywords" type="text" id="searchinput" value="{$search_keywords|escape}" class="f_l searchinput" />
+                       <input name="imageField" type="submit" value="" class="searchbtn" style="cursor:pointer; border:none" />
+                       </form>
+                       <div class="keys f_l">
+                       <script type="text/javascript">
+                        {literal}
+                        <!--
+                        function checkSearchForm()
+                        {
+                            if(document.getElementById('keyword').value)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                alert("{$lang.no_keywords}");
+                                return false;
+                            }
+                        }
+                        -->
+                        {/literal}
+                        </script>
+                        {if $searchkeywords}
+                       <font>{$lang.hot_search} ：</font>
+                       {foreach from=$searchkeywords item=val}
+                       <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+                       {/foreach}
+                       {/if}
+                      </div>
+                       
+                    </div>
+                    <!--search end-->
+                </div>
+            </div>
+            
+            <div class="heaCar"  onmouseover="this.className='heaCar heaCar_on'" onmouseout="this.className='heaCar'" > {insert_scripts files='transport.js'}
+              <div class="clearfix" id="ECS_CARTINFO" >购物车&nbsp;( <a href="flow.php">{insert name='cart_info'}</a> )&nbsp;件 </div>
+    </div>
+</div>         
+ 
+</div>
+<!--主导航开始-->
+<div id="heaNav">
+        <div class="bd">
+        <p class="heaNavOnly"> <a href="../index.php"{if $navigator_list.config.index eq 1} class="cur"{/if}>
+    {$lang.home}</a> </p>
+        <ul class="heaNavNone">
+          <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+          <li class="heaNav" onmouseover="this.className='heaNav heaNav_on'" onmouseout="this.className='heaNav'" 
+    
+    > <a  class="aaa" target="_blank" href="{$nav.url}"  {if $nav.opennew eq 1}target="_blank" class="cur" {/if} {if $nav.active eq 1}{/if}  
+    
+    title="{$nav.name}">{$nav.name}</a> <!-- {if $nav.cat_list}-->
+            
+            <!-- {/if}--></li>
+          <!-- {/foreach} -->
+        </ul>
+      </div>
+  </div>
+<!--主导航结束-->
+    

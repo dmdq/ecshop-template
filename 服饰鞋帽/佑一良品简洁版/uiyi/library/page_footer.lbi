@@ -1,0 +1,144 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+ 
+<div class="blank"></div>
+
+<script type="text/javascript">
+   if (Object.prototype.toJSONString){
+      var oldToJSONString = Object.toJSONString;
+      Object.prototype.toJSONString = function(){
+        if (arguments.length > 0){
+          return false;
+        }else{
+          return oldToJSONString.apply(this, arguments);
+        }
+		}
+}
+</script>
+<div class="footer">
+<div class="footBody block">
+<!--{if $helps}-->
+
+   <div class="footTop">
+      <!-- {foreach from=$helps item=help_cat name=no} -->
+      <dl>
+        <dt><img style="vertical-align:middle" src="../images/h{$smarty.foreach.no.iteration}.gif"><a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}">{$help_cat.cat_name}</a></dt>
+        <dd>
+          <!-- {foreach from=$help_cat.article item=item} -->
+          <a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a>
+          <!-- {/foreach} -->
+        </dd>
+      </dl>
+      <!-- {/foreach} -->
+    </div>
+
+<!--{/if}-->
+  <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="footBottom_line">
+      <p class="uypolicy"> <span class="policy1"></span><span class="policy2"></span><span class="policy3"> </span><span class="policy4"></span> </p>
+    </div>
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+  <div  id="bottomNav" class="block950 box">
+      <div class="links clearfix">
+        <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+        <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+        <!--结束图片类型的友情链接{/foreach}-->
+        <!-- {if $txt_links} -->
+        <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+        <a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>
+        <!--结束文字类型的友情链接{/foreach}-->
+        <!-- {/if} -->
+      </div>
+    </div>
+<!--{/if}-->
+<!--友情链接 end-->
+<div class="blank"></div>
+<!--底部导航 start-->
+<div class="block">
+  <div class="bNavList clearfix">
+   <!-- {if $navigator_list.bottom} -->
+   <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+     <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+    <!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+         |
+        <!-- {/if} -->
+      <!-- {/foreach} -->
+  <!-- {/if} -->
+ </div>
+ </div>
+<!--底部导航 end-->
+<div class="blank"></div>
+<div>
+    <p class="partners">
+	 <a rel="nofollow" href="#" target="_blank" class="partners1"></a>
+	 <a rel="nofollow" href="#" target="_blank" class="partners2"></a>
+	 <a rel="nofollow" href="#" target="_blank" class="partners3"></a>
+	 <a rel="nofollow" href="#" target="_blank" class="partners4"></a>
+	 <a rel="nofollow" href="#" target="_blank" class="partners5"></a> </p>
+	 </div>
+		   <div class="blank"></div>
+<!--版权 start-->
+<div id="footer">
+ <div class="text">
+ {$copyright}<br />
+ {$shop_address} {$shop_postcode}
+ <!-- 客服电话{if $service_phone} -->
+      Tel: {$service_phone}
+ <!-- 结束客服电话{/if} -->
+ <!-- 邮件{if $service_email} -->
+      E-mail: {$service_email}<br />
+ <!-- 结束邮件{/if} -->
+ <!-- QQ 号码 {foreach from=$qq item=im} -->
+      <!-- {if $im} -->
+      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束QQ号码 -->
+      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+      <!-- {if $im} -->
+      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />{$im}</a>
+      <!-- {/if} -->
+      <!--{/foreach} 结束淘宝旺旺 -->
+      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+      <!-- {if $im} -->
+      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束Yahoo Messenger -->
+      <!-- MSN Messenger {foreach from=$msn item=im} -->
+      <!-- {if $im} -->
+      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> <a href="msnim:chat?contact={$im}">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束MSN Messenger -->
+      <!-- Skype {foreach from=$skype item=im} -->
+      <!-- {if $im} -->
+      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+      <!-- {/if} -->
+  <!-- {/foreach} -->
+  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+  <!-- 结束ICP 证书{/if} -->
+
+ {$licensed}
+    {if $stats_code}
+    <div align="center">{$stats_code}</div>
+    {/if}
+       <div align="center" style="padding-bottom:5px;  " > {foreach from=$lang.p_y item=pv}{$pv}{/foreach}
+      
+       
+       </div>
+
+            
+        <div class="blank"></div>
+       
+        
+        
+        
+         <div class="blank"></div>
+       
+ </div>
+</div>
+
+
+</div>
+</div>

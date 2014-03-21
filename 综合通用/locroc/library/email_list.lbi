@@ -1,0 +1,46 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="emailList" class="moduleBg">
+  <h3><img src="../images/subscription_title.png" alt="subscription" /></h3>
+  <input type="text" id="user_email" class="textInput" />
+  <input type="image" src="../images/btn_subscription.gif" onclick="add_email_list();" /> 
+  <input type="image" src="../images/btn_unsubscription.gif" onclick="cancel_email_list();" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+var email = document.getElementById('user_email');
+function add_email_list()
+{
+  if (check_email())
+  {
+    Ajax.call('user.php?act=email_list&job=add&email=' + email.value, '', rep_add_email_list, 'GET', 'TEXT');
+  }
+}
+function rep_add_email_list(text)
+{
+  alert(text);
+}
+function cancel_email_list()
+{
+  if (check_email())
+  {
+    Ajax.call('user.php?act=email_list&job=del&email=' + email.value, '', rep_cancel_email_list, 'GET', 'TEXT');
+  }
+}
+function rep_cancel_email_list(text)
+{
+  alert(text);
+}
+function check_email()
+{
+  if (Utils.isEmail(email.value))
+  {
+    return true;
+  }
+  else
+  {
+    alert('{$lang.email_invalid}');
+    return false;
+  }
+}
+//]]>
+</script>

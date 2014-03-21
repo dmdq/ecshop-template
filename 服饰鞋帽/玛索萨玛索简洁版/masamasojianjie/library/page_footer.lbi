@@ -1,0 +1,72 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="blank"></div>
+ 
+
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div  id="bottomNav" class="block box">
+ <div class="box_1">
+  <div class="links clearfix" style="padding:15px;">
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+    <!--结束图片类型的友情链接{/foreach}-->
+    <!-- {if $txt_links} -->
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>
+    <!--结束文字类型的友情链接{/foreach}-->
+    <!-- {/if} -->
+
+  </div>
+ </div>
+</div>
+
+<div class="blank"></div>
+<!--{/if}-->
+
+	<!--底部开始-->
+		<div class="footer">
+    <div class="footer_box " style="border-bottom:1px dashed #606060">
+        <div class="footer_promise" ><img src="images/footer_13nav.gif"  border="0">
+			
+        </div>
+    </div>
+    <div class="help_link_list">
+ 
+<!-- {foreach from=$helps item=help_cat} -->
+<ul class="help_link">
+  <p><a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}">{$help_cat.cat_name}</a></p>
+  <!-- {foreach from=$help_cat.article item=item} -->
+  <li><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+  <!-- {/foreach} -->
+</ul>
+<!-- {/foreach} -->
+ 
+    
+           
+		<p class="clear"></p>
+	</div>
+</div>
+<div class="footer_nav_box">
+<div class="footer_nav">
+<div style="background: none repeat scroll 0% 0% rgb(102, 102, 102); height: 26px; line-height: 26px;">
+<!-- {if $navigator_list.bottom} -->
+<ul style="width: 845px;  margin: 0pt auto;">
+    <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+       <li>  <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+        
+      <!-- {/foreach} -->
+</ul> 
+<!-- {/if} -->
+</div>
+    <p style="text-align: center; margin-top: 10px; color: rgb(202, 202, 202);">
+    
+    {$copyright}  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a> 
+  <!-- 结束ICP 证书{/if} -->
+    </p>
+</div>
+    
+</div>
+ 
+ 

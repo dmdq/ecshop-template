@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body>
+<div id="container">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+  <!--left start-->
+  <div id="globalLeft">
+      <!-- TemplateBeginEditable name="主区域左侧" -->
+<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="categoryTree" class="globalModule_tree">
+  <ul>
+    <!-- {foreach from=$categories item=cat} -->
+    <li class="tree_li1">
+      <h4><a href="{$cat.url}">{$cat.name|escape:html}</a></h4>
+      <!-- {foreach from=$cat.children item=child} -->
+      <li class="tree_li2"><a href="{$child.url}">{$child.name|escape:html}</a></li>
+      <!-- {/foreach} -->
+    </li>
+    <!-- {/foreach} -->
+  </ul>
+</div>
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/history.lbi" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="globalHistory" class="globalModule_history">
+  <h3></h3>
+  <ul class="listStyle">
+    {insert name='history'}
+  </ul>
+</div>
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/recommend_hot.lbi" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods} -->
+
+<div style="clear:both"></div>
+
+<div id="globalHot" class="globalModule_hot">
+  <h3></h3>
+  <ul>
+    <!-- {foreach from=$hot_goods item=goods} -->
+
+      <LI><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></LI>
+
+    <!-- {/foreach} -->
+	</ul>
+</div><!-- /globalHot -->
+
+
+
+<div style="clear:both"></div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/price_grade.lbi" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $price_grade} -->
+<div id="globalPriceGrade" class="globalModule_price">
+  <h3>价格范围</h3>
+  <ul class="listStyle">
+    <!-- {foreach from=$price_grade item=grade} -->
+    <!-- {if $grade.selected} -->
+    <li id="price-grade-current">{$grade.formated_start} - {$grade.formated_end} {if $grade.goods_num}<span class="textDesc">({$grade.goods_num})</span>{/if}</li>
+    <!-- {else} -->
+    <li><a href="{$grade.url}">{$grade.formated_start} - {$grade.formated_end}</a> {if $grade.goods_num}<span class="textDesc">({$grade.goods_num})</span>{/if}</li>
+    <!-- {/if} -->
+    <!-- {/foreach} -->
+  </ul>
+</div><!-- /globalPriceGrade -->
+<!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/filter_attr.lbi" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $filter_attr_list} -->
+<div id="globalFilterAttr" class="globalModule">
+  <h3>{$filter_attr_name}</h3>
+  <ul class="listStyle">
+  <!-- {foreach from=$filter_attr_list item=attr} -->
+    <!-- {if $attr.selected} -->
+    <li>
+      {$attr.attr_value} <!-- {if $attr.goods_num} --><span class="textDesc">({$attr.goods_num})</span><!-- {/if} -->
+    </li>
+    <!-- {else} -->
+    <li>
+      <a href="{$attr.url}">{$attr.attr_value}</a> <!-- {if $attr.goods_num} --><span class="textDesc">({$attr.goods_num})</span><!-- {/if} -->
+    </li>
+    <!-- {/if} -->
+  <!-- {/foreach} -->
+  </ul>
+</div>
+<!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+    </div>
+  <!--left end-->
+
+  <!--right start-->
+  <div id="globalMiddle">    
+   <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+    <!-- TemplateBeginEditable name="右边区域" -->
+    <!-- #BeginLibraryItem "/library/exchange_hot.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/exchange_list.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+    <!-- TemplateEndEditable -->
+  </div>
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+ </div><!-- /container -->
+</body>
+</html>
+

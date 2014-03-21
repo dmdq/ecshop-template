@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_goods} -->
+
+<div id="topList" class="globalModule">
+  <h3>销售排行</h3>
+  <div class="box_2">
+  <ul>
+    <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+    <li><img src="../images/top_{$smarty.foreach.top_goods.iteration}.gif" alt="Top{$smarty.foreach.top_goods.iteration}" /><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+</div>
+<div class="blank5"></div>
+<!-- {/if} -->

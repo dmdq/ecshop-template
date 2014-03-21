@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" --><!-- TemplateEndEditable -->
+  <!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='common.js'}
+</head>
+
+<body>
+  <div id="container">
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+    <div id="globalLeft">
+    <!-- TemplateBeginEditable name="首页左侧广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+    
+       
+     
+     
+	 <!-- /promotionVideo -->
+      <!-- TemplateBeginEditable name="主区域左侧" -->
+<!-- #BeginLibraryItem "/library/recommend_hot.lbi" -->
+
+<!-- {if $hot_goods} -->
+
+<div style="clear:both"></div>
+
+<div id="globalHot" class="globalModule_hot">
+  <h3></h3>
+  <ul>
+    <!-- {foreach from=$hot_goods item=goods} -->
+
+      <LI><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></LI>
+
+    <!-- {/foreach} -->
+	</ul>
+</div><!-- /globalHot -->
+
+
+
+<div style="clear:both"></div>
+<!-- {/if} -->
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+    </div><!-- /globalLeft -->
+    <div id="globalMiddle">
+	<div id="promotionVideo" >
+    <!-- TemplateBeginEditable name="首页中部广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+    
+  <!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+      </div>
+	<div id="left_ad"> 
+  <!-- TemplateBeginEditable name="首页右侧广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+    </div><!-- /globalMiddle -->
+<DIV id=globalRight2>	
+<!-- TemplateBeginEditable name="主区域中部" -->
+<!-- #BeginLibraryItem "/library/recommend_new.lbi" -->
+
+<!-- {if $new_goods} -->
+<div id="globalNew" class="globalModule_new">
+  <h3><a href="../search.php?intro=new"><img src="../images/newnav.gif"></a></h3>
+  <div class="itemGrid1">
+   <!-- {foreach from=$new_goods item=goods} -->
+    <div class="item">
+      <p class="pic"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></p>
+	   <p class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+      <p class="price">
+        <!-- {if $goods.promote_price neq ""} -->
+        {$lang.promote_price}<span class="goodsPrice">{$goods.promote_price}</span>
+        <!-- {else}-->
+        {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span>
+        <!--{/if}-->
+      </p>
+</div>
+    <!-- {/foreach} -->
+  </div>
+</div><!-- /globalNew -->
+<!-- {/if} -->
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/recommend_best.lbi" -->
+
+<!-- {if $best_goods} -->
+<DIV class=globalModule_new id=globalNew>
+<h3><a href="../search.php?intro=best"><img src="../images/goodnav.gif"></a></h3>
+  <div class="itemGrid1">
+    <!-- {foreach from=$best_goods item=goods} -->
+    <div class="item">
+      <p class="pic"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></p>
+	  <p class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+      <p class="price">
+        <!-- {if $goods.promote_price neq ""} -->
+        {$lang.promote_price}<span class="goodsPrice">{$goods.promote_price}</span>
+        <!-- {else}-->
+        {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span>
+        <!--{/if}-->
+      </p>
+</div>
+    <!-- {/foreach} -->
+  </div>
+</div><!-- /globalbest -->
+<!-- {/if} -->
+
+
+
+
+
+  
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>		
+    <div id="globalRight">
+	 <div id="globalRight1">
+<!-- TemplateBeginEditable name="主区域下侧" -->
+<!-- #BeginLibraryItem "/library/new_articles.lbi" -->
+
+
+<div id="low_main_list">
+  <div id="ECS_ARTICLE_BODY">
+  <h3></h3>
+    <ul class="linkSkyblue">
+      <!-- {foreach name=new_articles from=$new_articles item=article} -->
+      <!-- {if $smarty.foreach.new_articles.iteration lte 16} 限制文章显示数量 -->
+      <li>[<a href="{$article.cat_url}">{$article.cat_name}</a>] <a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:18}</a></li>
+      <!-- {/if} -->
+      <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/vote_list.lbi" -->
+
+{insert name='vote'}
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> 
+
+	<div id="low_main_list" class="globalModule_cs">
+	<h3></h3>
+	</div>
+	   
+    <div id="low_main_list_l" class="globalModule_link">
+	<h3></h3>
+	<div id="low_main_box">
+
+	  <a href="http://www.ecmoban.com"  title="ecshop模板堂" target="_blank"> <img src="images/ecmoban_link.gif" alt="ecshop模板堂" /></a>
+        
+     <!-- {if $img_links  or $txt_links } -->
+          <!-- {if $img_links} -->
+         <!-- 开始图片类型的友情链接{foreach from=$img_links item=link} -->
+        <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" /></a>
+        <!-- 结束图片类型的友情链接{/foreach} -->
+		 <!-- {/if} -->
+      <!-- {if $txt_links} -->
+
+        <!-- 开始文字类型的友情链接{foreach from=$txt_links item=link} -->
+        [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>]
+        <!-- 结束文字类型的友情链接{/foreach} -->
+      <!-- {/if} -->
+	 </div> 
+    </div><!-- /globalLink -->
+    <!-- {/if} -->
+</div>
+</div><!-- /globalRight -->
+	
+
+	
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+   
+  </div><!-- /container -->
+</body>
+</html>
+

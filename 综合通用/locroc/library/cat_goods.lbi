@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_goods} -->
+<div id="globalCatgoods" class="globalModule">
+  <h3 class="h3_2"><span>{$goods_cat.name|escape:html}</span><a href="{$goods_cat.url}"><img src="../images/more.gif" alt="" /></a></h3>
+  <div class="itemGrid1">
+    <!-- {foreach from=$cat_goods item=goods} -->
+    <div class="item">
+      <p class="pic"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></p>
+      <p class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></p>
+      <p class="price">
+        <!-- {if $goods.promote_price neq ""} -->
+        {$lang.promote_price}<span class="goodsPrice">{$goods.promote_price}</span>
+        <!-- {else}-->
+        {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span>
+        <!--{/if}-->
+      </p>
+    </div>
+    <!-- {/foreach} -->
+  </div>
+</div><!-- /globalBest -->
+<!-- {/if} -->
+

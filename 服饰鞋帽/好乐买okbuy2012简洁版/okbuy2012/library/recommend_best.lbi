@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $best_goods} -->
+
+
+<a href="../search.php?intro=best" style=" color:#666666"><img src="../images/tit_best.gif"  ></a>
+ 
+  <div class="blank"></div>
+ 
+ 
+  <div id="show_best_area"  class="clearfix">
+
+  <!--{foreach from=$best_goods item=goods}-->
+  <div class="goodsItem"  >
+        
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+            <p class="f1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+            <font class="market">{$goods.market_price}</font><br />
+           <font class="f1">
+           <!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}-->
+           </font>
+        </div>
+  <!--{/foreach}-->
+ 
+
+  </div>
+ 
+<div class="blank"></div>
+
+<!-- {/if} -->

@@ -1,0 +1,85 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="block">
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <!--友情链接 start-->
+  <!--{if $img_links  or $txt_links }-->
+  <div id="bottomNav" >
+    <div class=" clearfix" style="padding:10px 5px;">
+      <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+      <a href="{$link.url}" target="_blank" title="{$link.name}"><img style="width:88px; height:31px;" src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+      <!--结束图片类型的友情链接{/foreach}-->
+      <!-- {if $txt_links} -->
+      <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+      [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>]
+      <!--结束文字类型的友情链接{/foreach}-->
+      <!-- {/if} -->
+           
+      
+      
+    </div>
+  </div>
+  <!--{/if}-->
+  <!--友情链接 end-->
+ 
+   
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div style=" border-top:1px solid #d2d2d2; border-bottom:none; padding:25px 0; text-align:left">
+ 
+     
+    <!--底部导航 start-->
+    <!--底部导航 end-->
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="helpTitBg">
+      <!--{if $helps}-->
+      <!-- {foreach from=$helps item=help_cat} -->
+      <dl>
+        <dt><a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}">{$help_cat.cat_name}</a></dt>
+        <!-- {foreach from=$help_cat.article item=item} -->
+        <dd><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></dd>
+        <!-- {/foreach} -->
+      </dl>
+      <!-- {/foreach} -->
+      <!--{/if}-->
+    </div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div style="width:960px; height:28px; line-height:28px; _padding-top:7px; _height:21px; background:#000000; margin:0 auto; text-align:center; margin-top:30px;">
+      <p style="color:#FFFFFF;">© 2005-2012 ECSHOP模板堂（www.ecmoban.com） 版权所有，并保留所有权利。
+	  
+	  {$licensed}
+	  
+	   {if $stats_code}
+	   {$stats_code}
+       {/if}
+	  </p>
+    </div>
+    
+   
+      
+	    <div style="width:1px; height:1px; overflow:hidden">
+	  {foreach from=$lang.p_y item=pv}{$pv}{/foreach}
+	  </div>
+    
+  </div>
+</div>
+
+
+

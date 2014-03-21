@@ -1,0 +1,52 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $user_info} -->
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+
+.yu_e{position:relative; top:0;}
+*html .yu_e{position:relative; top:0;}
+*+html .yu_e{position:relative; top:3px;}
+
+-->
+</style>
+<ul>
+<li >{$lang.hello}</li>
+<li class="li01"><a href="user.php">{$user_info.username}</a></li>
+<li class="li01">{$user_info.user_points}</li><li class="li01 yu_e" style="">{$user_info.user_money}余额</li>
+<li><a href="user.php?act=logout">退出</a></li>
+</ul>
+
+<!-- {else} -->
+
+
+
+
+
+
+
+<FORM style="padding-top:5px;" name=formLogin onSubmit="return userLogin()" action=user.php method=post>
+
+用户名：<INPUT class="textInput textInputSign"  id=username name=username>
+密码：<INPUT  size="10" tabindex="2" class="textInput textInputSign" id=password type=password name=password> 
+<input type="image" src="../images/btn_signin.gif" style="position:relative; top:3px;_top:0px;" /> 
+<a href="../user.php?act=register">注册</a> <a href="user.php?act=get_password" id="textForget">{$lang.forgot_password}</a>
+
+
+  <INPUT type=hidden 
+value=act_login name=act> <INPUT type=hidden name=back_act>
+
+</FORM>
+
+
+
+  <script type="text/javascript">
+  //<![CDATA[
+    var process_request = "{$lang.process_request}";
+    {foreach from=$lang.passport_js item=item key=key}
+    var {$key} = "{$item}";
+    {/foreach}
+    var username_exist = "{$lang.username_exist}";
+  //]]>
+  </script>
+<!-- {/if} -->

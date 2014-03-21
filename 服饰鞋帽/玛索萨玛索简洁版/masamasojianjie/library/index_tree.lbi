@@ -1,0 +1,47 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div style=" float:left;">
+
+<div class="sub_hot  ">
+<div class="sub_title  ">
+<ul>
+ 热门分类
+</ul>
+</div>
+<div class="index_nav">
+ <!--{foreach from=$categories item=cat}-->
+<div class="index_nav_off"  onmouseover="this.className='  index_nav_on'" onmouseout="this.className='index_nav_off'" >
+<p class="index_nav_title"><a href="{$cat.url}">{$cat.name|escape:html}</a></p>
+<p class="index_nav_main">
+<!--{foreach from=$cat.cat_id item=child}-->
+ <a href="{$child.url}">{$child.name|escape:html}</a> |
+       
+     <!--{/foreach}-->                  
+</p>
+</div>
+ 
+   <!--{/foreach}--> 
+ 
+ 
+</div>
+</div>
+
+</div>
+
+
+
+ <div class="news_art">
+
+<h3><span>最新公告</span></h3>
+
+ <div class="boxCenterList  " style="padding-bottom:13px">
+        <!--{foreach from=$new_articles item=article}-->
+      
+      <a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title}</a>
+ 
+        <!--{/foreach}-->
+</div>
+
+</div>
+
+<div class="blank"></div>

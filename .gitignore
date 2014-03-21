@@ -1,0 +1,36 @@
+*.class
+*.iml
+*.h
+*.cc
+*.rdb
+*.mdb
+############ Project Files ############
+.log
+.idea
+.project
+.classpath
+.settings
+.DS_Store
+.metadata
+*/bin
+*/c++
+############ Package Files ############
+*.jar
+*.war
+*.ear
+/target
+/**/target
+/**/**/target
+/**/**/**/target
+/build
+/**/build
+/bin
+*.pmd
+
+############ Rebel Files ############
+rebel.xml
+
+
+############ Log Files ############
+/reports
+/log

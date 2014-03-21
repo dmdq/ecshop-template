@@ -1,0 +1,153 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_letao/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_letao/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+ 
+
+<div class="top_nav">
+<div class="block">
+<div class="f_r log">
+
+<ul>  <li id="topNav" class="clearfix"> {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+ 
+ 
+   <!--{if $navigator_list.top}--><!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} --> <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a> |
+<!-- {/foreach} --> <!-- {/if} -->
+ 
+ 
+   
+   <img src="../images/biao3.gif" style="vertical-align:middle; padding-left:5px;">
+   <a style="cursor: pointer; padding:0; color:#fc3398"  
+onClick="window.external.AddFavorite(location.href,document.title);">收藏本站</a>
+ 
+ 
+   </li>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  </ul>
+ 
+  
+  
+  
+ </div>
+
+
+</div>
+</div>
+
+
+ 
+<div class="block clearfix" style="position:relative; height:95px;">
+ <div class="f_l" style=" padding-top:8px; padding-left:33px "><a href="../index.php" name="top"><img src="../images/logo.gif" /></a></div>
+ 
+
+
+<div id="search"  class="clearfix"> 
+ 
+
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" >
+   <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}"          class="B_input"/>
+   <input name="imageField" type="submit" value="" class="go" style="cursor:pointer;" />
+  <img src="../images/biao6.gif">
+ 
+   </form>  
+   
+    <div class="keys  ">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    
+    {if $searchkeywords}
+   <b>热搜：</b>
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+   
+   
+  </div>
+  
+     
+ 
+  
+ 
+</div>
+
+
+
+
+
+
+ {insert_scripts files='transport.js'}
+<div class="cart" id="ECS_CARTINFO">
+<div class="f_l">
+ {insert name='cart_info'}
+</div> 
+<div class="f_r" style="padding:5px 8px 0 0; ">
+<a href="flow.php"><img style="float:left" src="../images/jiesuan.gif"></a>
+</div> 
+
+</div>
+ 
+
+
+
+  
+
+ 
+
+</div>
+
+ 
+ 
+<div id="mainNav"  >
+
+
+
+<div class="block clearfix">
+
+
+
+  <a class="a1 {if $navigator_list.config.index eq 1} cur {/if}" href="../index.php"  >{$lang.home} </a>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <ul class="u1" onmouseover="this.className='u1 u1_over'" onmouseout="this.className='u1'" >
+  <a  class="a1 {if $nav.active eq 1} cur {/if}"  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a>
+  </ul>
+ <!-- {/foreach} -->
+ 
+ 
+ 
+ 
+ </div>
+</div>
+
+<div class="blank"></div>
+

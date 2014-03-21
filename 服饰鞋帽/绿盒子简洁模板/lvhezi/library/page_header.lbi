@@ -1,0 +1,114 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="block clearfix" style="position:relative; height:82px; z-index:999999999">
+ <div class="f_l" style=" padding:5px 0 "><a href="../index.php" name="top"><img src="../images/logo.gif" /></a></div>
+ 
+ 
+ 
+ <div class="log">
+   <ul>  
+   
+   <li id="topNav" class="clearfix"> 
+   {insert_scripts files='transport.js,utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+   
+   <!--{if $navigator_list.top}-->
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+            <!-- {if !$smarty.foreach.nav_top_list.last} -->
+             |
+            <!-- {/if} -->
+    <!-- {/foreach} -->  
+    
+     <!-- {/if} -->
+  
+   </li>
+
+  
+<div class="blank"></div>
+   <div id="topNav_b" class="clearfix">
+     (9:00---21:00周一至周日)服务热线 <img style="vertical-align:middle" src="../images/tel.gif">
+</div>
+   </ul>
+ </div>
+ 
+ 
+
+</div>
+
+ 
+ 
+
+ <div class="block" style="border:1px solid #ccc; width:958px;"> 
+<div id="mainNav" class="clearfix">
+  <a class="aa  aa0" href="../index.php"  >{$lang.home} </a>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav  } -->
+
+   <a  class="aa  aa{$smarty.foreach.nav_middle_list.iteration}"  href="{$nav.url}" target="_blank"><span>{$nav.name}</span></a>
+
+   <!-- {/foreach} -->
+ 
+ 
+ </div>
+<!--search start-->
+<div id="search"  class="clearfix"> 
+   <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_l" >
+   <input name="keywords" type="text" id="keyword" value="请输入商品名称..." onclick="javascript:this.value=''" class="B_input"/>
+   <input name="imageField" type="submit" value="" class="go" style="cursor:pointer;" />
+   
+   </form>  
+ 
+  <div class="keys f_l">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+   <b>热门关键字：</b>
+   {foreach from=$searchkeywords item=val}
+   <a target="_blank" href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+  </div>
+  
+     
+ 
+ <div class="buy_car_bg_box"  >  
+{insert_scripts files='transport.js'}
+<div class="buy_car_bg "  id="ECS_CARTINFO">
+<img src="../images/biao6.gif">
+
+ {insert name='cart_info'} <a href="flow.php"><img style="vertical-align:middle;" src="../images/jiesuan.gif"></a>
+
+</div>
+
+
+
+
+
+ 
+</div>
+
+  </div>
+ 
+ 
+<!--search end-->
+</div>

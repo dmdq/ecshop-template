@@ -1,0 +1,130 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban_shishang71/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban_shishang71/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="block header_bg">
+<div class="block clearfix" style=" position:relative; height:70px; ">
+ <div class="logo">
+ <a href="../index.php" name="top"><img  src="../images/logo.gif" /></a>
+ </div>
+ <div class="f_r log">
+   <ul>
+ 
+ 
+   <li id="topNav" class="clearfix">
+  
+  
+     <!--{if $navigator_list.top}-->
+  <div style=" float:left">
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+           <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+           
+            
+     <!-- {/foreach} --> 
+	</div>
+	    <!-- {/if} -->
+	 
+	 
+ {insert_scripts files='transport.js,utils.js'}
+   <font id="ECS_MEMBERZONE" style="float:left" >{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+    
+   </li>
+ 
+   </ul>
+ </div>
+ <script type="text/javascript">
+    {literal}
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    {/literal}
+    </script>
+</div>
+
+
+<div  class="blank"></div>
+
+
+
+
+<div class="block" style="position:relative; z-index:999999">
+ 
+
+
+
+<div id="mainNav" class="clearfix"> 
+  <ul class="u1" onmouseover="this.className='u1 u1_over '" onmouseout="this.className='u1'"   >
+  <a class="a1"  href="../index.php">{$lang.home}</a>
+  </ul>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <ul class="u1" onmouseover="this.className='u1 u1_over'" onmouseout="this.className='u1'" >
+  <a  class="a1"  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a>
+  </ul>
+ <!-- {/foreach} -->
+</div>
+
+
+
+</div>
+</div>
+<!--search start-->
+<div id="search"  class="clearfix">
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_l" >
+   <input name="keywords" type="text" id="keyword" value="品名或商品号" onclick="javascript:this.value=''" class="B_input"/>
+   <input name="imageField" type="submit" value="" class="go" style="cursor:pointer;" />
+  
+   </form>
+  <div class="keys f_l">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+   热门关键词：
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   
+   | 
+   {/foreach}<a style=" color:#fe596a" href="../search.php?intro=hot">热销排行</a>
+   {/if}
+  </div>
+  
+     <div class="keys_r">
+  
+    <a href="search.php?intro=promotion">特价专区</a> | <a href="search.php?intro=hot">热销活动</a>  | <a style="color:#fe596a" href="../search.php?intro=new">最新热销</a>  
+  
+  
+  </div>
+  
+  
+  
+</div>
+<!--search end-->
+
+
+ <div class="block"  style=" position:relative">

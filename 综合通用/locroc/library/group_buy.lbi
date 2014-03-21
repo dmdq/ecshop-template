@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $group_buy_goods} -->
+<div id="globalGroup" class="globalModule">
+  <h3 class="h3_2"><span>{$lang.group_buy_goods}</span><a href="../group_buy.php"><img src="../images/more.gif" alt="" /></a></h3>
+  <div class="itemGrid1">
+    <!-- {foreach from=$group_buy_goods item=goods} -->
+    <div class="item">
+      <p class="pic"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.goods_name|escape:html}" /></a></p>
+      <p class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name|escape:html}</a></p>
+      <p class="price">
+       <span class="goodsPrice">{$goods.last_price}</span>
+      </p>
+    </div>
+    <!-- {/foreach} -->
+  </div>
+</div>
+<!-- {/if} -->

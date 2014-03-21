@@ -1,0 +1,21 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+<div id="relativeItem" class="globalModule">
+  <h3>{$lang.releate_goods}</h3>
+  <div class="itemGrid">
+    <!-- {foreach from=$related_goods item=goods_related} -->
+    <div class="item">
+      <p class="pic"><a href="{$goods_related.url}"><img src="{$goods_related.goods_thumb}" alt="{$goods_related.goods_name}" /></a></p>
+      <p class="name"><a href="{$goods_related.url}" title="{$goods_related.goods_name}">{$goods_related.short_name}</a></p>
+      <p class="price">
+        <!-- {if $goods_related.promote_price neq 0} -->
+        {$lang.promote_price}<span class="goodsPrice">{$goods_related.formated_promote_price}</span>
+        <!-- {else}-->
+        {$lang.shop_price}<span class="goodsPrice">{$goods_related.shop_price}</span>
+        <!--{/if}-->
+      </p>
+    </div><!-- /item -->
+    <!-- {/foreach} -->
+  </div><!-- /itemGrid -->
+</div>
+<!-- {/if} -->

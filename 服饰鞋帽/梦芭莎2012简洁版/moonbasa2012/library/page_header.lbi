@@ -1,0 +1,123 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="block clearfix" style="position:relative; z-index:999999999; height:107px;">
+ <div class="f_l" ><a href="../index.php" name="top"><img src="../images/logo.gif" /></a></div>
+ <div class="f_r log">
+ <div class="log_l">
+   <ul>
+   <li id="topNav" class="clearfix">
+   {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+
+   <!--{if $navigator_list.top}-->
+
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+       <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+          
+             |
+      
+    <!-- {/foreach} -->   <!-- {/if} -->
+   </li>
+   </ul>
+   
+    
+ 
+ <img src="../images/tel.gif" style="float:left; padding:4px">
+ </div>
+ <div class="cart" id="ECS_CARTINFO">
+<div>
+{insert name='cart_info'}
+</div>
+<a href="flow.php"><img src="../images/jiesuan.gif"></a>
+ 
+</div>
+ </div>
+ 
+<div class="meun_top">
+ 
+<a href="#">预定中心</a>
+<a href="#">资讯中心</a>
+<a href="#">帮助中心</a>
+<a href="#">品牌故事</a>
+<a href="#">加盟</a>
+</div>
+ 
+ 
+</div>
+
+<div  class="blank"></div>
+
+
+
+
+<div id="mainNav" class="clearfix">
+<div class="block">
+
+
+
+  <a class="a1" href="../index.php" {if $navigator_list.config.index eq 1} id="cur"{/if}>{$lang.home} </a>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <ul class="u1" onmouseover="this.className='u1 u1_over'" onmouseout="this.className='u1'" >
+  <a  class="a1"  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} id="cur"{/if}>{$nav.name}</a>
+   
+  
+  </ul>
+ <!-- {/foreach} -->
+  
+   
+ 
+</div></div>
+<!--search start-->
+<div id="search"  class="clearfix">
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_l" >
+   <input name="keywords" type="text" id="keyword" value="品名或商品号" onclick="javascript:this.value=''" class="B_input"/>
+   <input name="imageField" type="submit" value="" class="go" style="cursor:pointer;" />
+  
+   </form>
+  <div class="keys f_l">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+   热门关键词：
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   
+   | 
+   {/foreach}<a style=" color:#e50462" href="../search.php?intro=hot">热销排行</a>
+   {/if}
+  </div>
+  
+     <div class="keys_r">
+  
+    <a href="search.php?intro=promotion">特价专区</a> | <a href="search.php?intro=hot">热销活动</a>  | <a style="color:#e50462" href="../search.php?intro=new">最新热销</a>  
+  
+  
+  </div>
+  
+  
+  
+</div>
+<!--search end-->
+
+
+ <div class="block"  style=" position:relative">

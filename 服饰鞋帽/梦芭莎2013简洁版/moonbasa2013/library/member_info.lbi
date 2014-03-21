@@ -1,0 +1,19 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{if $user_info}
+ <a style="padding:0 7px; color:#a0a0a0" href="user.php?act=logout">{$lang.user_logout}</a> 
+<a style="padding:0 7px;" href="user.php">{$lang.user_center}</a>
+ 
+<span class="f4_b" >{$user_info.username}</span> <span>{$lang.hello}，</span>   
+ 
+
+
+{else}
+<a href="user.php?act=register">注册</a><SPAN style="PADDING-RIGHT: 3px"> | </SPAN> <a  style="COLOR: #e70065" href="user.php">登录</a>
+<span>欢迎光临梦芭莎！</span>
+
+{/if}
+
+
+ 

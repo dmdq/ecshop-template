@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="globalPriceList" class="globalModule">
+  <h3>{$lang.new_price}</h3>
+  <ul class="listStyle">
+    <!--{foreach from=$price_list item=item}-->
+    <li><span class="fRight">{$item.bid_price}</span>{$item.user_name}</li>
+    <!--{/foreach}-->
+  </ul>
+</div>

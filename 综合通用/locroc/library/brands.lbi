@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $brand_list} -->
+<div id="brandList" class="globalModule global_center">
+  <h3>品牌商品</h3>
+  <div id="brandScroller">
+    <!-- {foreach from=$brand_list item=brand} -->
+    <!-- {if $brand.brand_logo} -->
+    <li><a href="{$brand.url}"><img src="../data/brandlogo/{$brand.brand_logo}" alt="{$brand.brand_name|escape:html} ({$brand.goods_num})" /></a><dl><dd><span class="f555">{$brand.brand_name|escape:html}</span></dd><dd><span class="F69">商品数:</span><span class="F69">{$brand.goods_num}</span></dd></dl></li>
+    <!-- {else} -->
+    <li class="textLink"><a href="{$brand.url}">{$brand.brand_name|escape:html}</a> <!-- {if $brand.goods_num} --><span class="textDesc">({$brand.goods_num})</span><!-- {/if} --></li>
+    <!-- {/if} -->
+    <!-- {/foreach} -->
+  </div>
+</div>
+<!-- {/if} -->

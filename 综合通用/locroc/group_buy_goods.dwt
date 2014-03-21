@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" --><!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='common.js,lefttime.js'}
+  <script type="text/javascript">
+  //<![CDATA[
+  {foreach from=$lang.js_languages item=item key=key}
+    var {$key} = "{$item}";
+  {/foreach}
+  //]]>
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+    <div id="globalLeft">
+      <!-- TemplateBeginEditable name="主区域左侧" -->
+      <!-- #BeginLibraryItem "/library/search_form.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/cart.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+      <!-- TemplateEndEditable -->
+    </div><!-- /globalLeft -->
+    <div id="globalBigRight">
+      <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+      <div id="itemAllInfo" class="globalModule">
+        <div id="itemPic">
+          <a href="{$gb_goods.url}"><img src="{$gb_goods.goods_thumb}" alt="{$gb_goods.goods_name|escape:html}" class="thumb"/></a>
+        </div><!-- /itemPic -->
+        <div id="itemInfoList">
+          <h2>{$lang.gb_goods_name}{$gb_goods.goods_name|escape:html}</h2>
+          <ul>
+            <!-- {if $cfg.show_goodssn && 0} -->
+            <li>{$lang.goods_sn}{$gb_goods.goods_sn}</li>
+            <!-- {/if} -->
+            <!-- {if $cfg.goods.brand_name && $show_brand && 0} -->
+            <li>{$lang.goods_brand} {$gb_goods.brand_name}</li>
+            <!-- {/if} -->
+            <!-- {if $cfg.show_goodsweight && 0} -->
+            <li>{$lang.goods_weight}{$gb_goods.goods_weight}</li>
+            <!-- {/if} -->
+            <li>{$lang.gb_start_date}{$group_buy.formated_start_date}</li>
+            <li>{$lang.gb_end_date}{$group_buy.formated_end_date}</li>
+            <li>
+              {$lang.gb_price_ladder}
+              <table border="0" class="itemInfoListTable">
+                <tr>
+                  <th>{$lang.gb_ladder_amount}</th>
+                  <th>{$lang.gb_ladder_price}</th>
+                </tr>
+                <!-- {foreach from=$group_buy.price_ladder item=item} -->
+                <tr>
+                  <td>{$item.amount}</td>
+                  <td>{$item.formated_price}</td>
+                </tr>
+                <!-- {/foreach} -->
+              </table>
+            </li>
+            <!-- {if $group_buy.deposit > 0} -->
+            <li>{$lang.gb_deposit}{$group_buy.formated_deposit}</li>
+            <!-- {/if} -->
+            <!-- {if $group_buy.restrict_amount > 0} -->
+            <li>{$lang.gb_restrict_amount}{$group_buy.restrict_amount}</li>
+            <!-- {/if} -->
+            <!-- {if $group_buy.gift_integral > 0} -->
+            <li>{$lang.gb_gift_integral}{$group_buy.gift_integral}</li>
+            <!-- {/if} -->
+            <!-- {if $group_buy.status eq 0} 未开始 -->
+            <li>{$lang.gbs_pre_start}</li>
+            <!-- {elseif $group_buy.status eq 1} 进行中 -->
+            <li class="textStrong">{$lang.gbs_under_way}<span id="leftTime">{$lang.please_waiting}</span></li>
+            <li>{$lang.gb_cur_price}{$group_buy.formated_cur_price}</li>
+            <li>{$lang.gb_valid_goods}{$group_buy.valid_goods}</li>
+            <!-- {elseif $group_buy.status eq 2} 已结束 -->
+            <li>{$lang.gbs_finished}</li>
+            <li>{$lang.gb_cur_price}{$group_buy.formated_cur_price}</li>
+            <li>{$lang.gb_valid_goods}{$group_buy.valid_goods}</li>
+            <!-- {elseif $group_buy.status eq 3} 团购成功 -->
+            <li>{$lang.gbs_succeed}</li>
+            <li>{$lang.gb_final_price}{$group_buy.formated_trans_price}</li>
+            <li>{$lang.gb_final_amount}{$group_buy.trans_amount}</li>
+            <!-- {elseif $group_buy.status eq 4} 团购失败 -->
+            <li>{$lang.gbs_fail}</li>
+            <!-- {/if} -->
+          </ul>
+        </div><!-- /itemInfoList -->
+      </div><!-- /itemAllInfo -->
+      <!-- {if $group_buy.status eq 1} 只有进行中才显示属性，才能购买 -->
+      <div id="globalGroupProperties" class="globalModule">
+        <h3>{$lang.groupbuy_goods_info}</h3>
+        <form action="group_buy.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+          <table border="0" width="90%">
+            <!-- {if $smarty.session.user_id > 0} 如果登录了，显示购买按钮 -->
+            <tr>
+              <th>{$lang.number}:</th>
+              <td><input name="number" type="text" value="1" size="4" id="number" class="textInput" /></td>
+              <td align="right">
+                <input type="hidden" name="group_buy_id" value="{$group_buy.group_buy_id}" />
+                <input type="image" src="../images/btn_addcart.gif" />
+              </td>
+            </tr>
+            <!-- {else} 如果没有登录，显示提示信息 -->
+            <tr>
+              <td colspan="3" align="center" class="textStrong">
+                {$lang.gb_notice_login}
+              </td>
+            </tr>
+            <!-- {/if} 判断登录结束 -->
+            <tr>
+              <th>{$spec.name}</th>
+              <td colspan="2">
+                <!-- {if $cfg.goodsattr_style eq 1} 规格显示方式：单选按钮 -->
+                <!-- {foreach from=$spec.values item=value key=key} -->
+                <label for="spec_value_{$value.id}">
+                  <input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked{/if} /> {$value.label}
+                </label>
+                <!-- {/foreach} -->
+                <!-- {else} 规格显示方式：下拉列表 -->
+                <select name="spec_{$spec_key}">
+                <!-- {foreach from=$spec.values item=value key=key} -->
+                <option label="{$value.label}" value="{$value.id}">{$value.label}</option>
+                <!-- {/foreach} -->
+                </select>
+                <!-- {/if} 规格显示方式 -->
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div><!-- /globalGroupProperties -->
+      <!-- {/if} -->
+      <!-- {if $group_buy.group_buy_desc} 如果有团购说明，显示 -->
+      <div id="globalGroupDesc" class="globalModule">
+        <h3>{$lang.properties}</h3>
+        <div class="globalModuleContent">
+          {$group_buy.group_buy_desc}
+        </div>
+      </div><!-- /globalGroupDesc -->
+      <!-- {/if} -->
+    </div><!-- /globalBigRight -->
+     
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+  </div><!-- /container -->
+  <script type="text/javascript">
+  //<![CDATA[
+  var gmt_end_time = "{$group_buy.gmt_end_date|default:0}";
+  {foreach from=$lang.goods_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  {literal}
+  onload = function()
+  {
+    try
+    {
+      onload_leftTime();
+    }
+    catch (e)
+    {}
+    fixpng();
+  }
+  {/literal}
+  //]]>
+  </script>
+</body>
+</html>
+
